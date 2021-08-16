@@ -34,6 +34,13 @@ jobs:
     - name: Run fastlane adhoc
       run: |
         fastlane adhoc
-    - name: ls
-      run: |
-        ls -la
+    - name: prepare .ssh dir
+      run: mkdir -p .ssh && chmod 700 .ssh
+    - name: ssh key generate
+      run: echo "$SSH_KEY" > .ssh/id_ed25519 && chmod 600 .ssh/id_ed25519
+      env:
+        SSH_KEY: ${{ secrets.SSH_KEY }}
+    - name: copy ipa and manifest files
+      run: scp -i .ssh/id_ed25519 Cider.ipa manifest.plist $SCP_DESTINATION
+      env:
+        SCP_DESTINATION: ${{ secrets.SCP_DESTINATION }}
