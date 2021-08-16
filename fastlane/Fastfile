@@ -25,13 +25,13 @@ platform :ios do
       type: "adhoc",
       readonly: true,
       git_url: "https://github.com/fvh-P/Cider-certificates.git",
-      git_basic_authorization: Base64.strict_encode64("#{ENV["GITHUB_USERNAME"]}:#{ENV["GITHUB_PERSONAL_ACCESS_TOKEN"]}"),
+      git_basic_authorization: Base64.strict_encode64("#{ENV["GH_USERNAME"]}:#{ENV["GH_PERSONAL_ACCESS_TOKEN"]}"),
       storage_mode: "git",
       app_identifier: "net.fvhp.lily.Cider",
       username: ENV["APPLE_ID"]
     )
   end
-  
+
   lane :adhoc do
     build_app(
       scheme: "Cider",
