@@ -1,4 +1,4 @@
-name: Ad Hoc Deployment
+name: AdHoc Deployment
 
 on:
   push:
@@ -64,7 +64,7 @@ jobs:
         SCP_DESTINATION: ${{ secrets.SCP_DESTINATION }}
       run: |
         # SCPでファイルをコピー
-        scp -i .ssh/id_ed25519 Cider.ipa manifest.plist $SCP_DESTINATION
+        echo yes | scp -i .ssh/id_ed25519 Cider.ipa manifest.plist $SCP_DESTINATION
     - name: close port
       env:
         SECURITY_GROUP: ${{ secrets.AWS_SECURITY_GROUP_ID }}
