@@ -49,7 +49,7 @@ jobs:
     - name: Public IP
       id: ip
       uses: haythem/public-ip@v1.2
-    - name: Deploy
+    - name: open port
       env:
         SECURITY_GROUP: ${{ secrets.AWS_SECURITY_GROUP_ID }}
         SCP_DESTINATION: ${{ secrets.SCP_DESTINATION }}
@@ -59,9 +59,18 @@ jobs:
         
         # SSHポートを開放する
         aws --profile cider-adhoc-deploy ec2 authorize-security-group-ingress --group-id ${SECURITY_GROUP} --protocol tcp --port 22 --cidr "$IP_ADDRESS"/32
-
+    - name: deploy
+      env:
+        SCP_DESTINATION: ${{ secrets.SCP_DESTINATION }}
+      run: |
         # SCPでファイルをコピー
         scp -i .ssh/id_ed25519 Cider.ipa manifest.plist $SCP_DESTINATION
+    - name: close port
+      env:
+        SECURITY_GROUP: ${{ secrets.AWS_SECURITY_GROUP_ID }}
+      run: |
+        # https://github.com/haythem/public-ip
+        IP_ADDRESS=`echo ${{ steps.ip.outputs.ipv4 }}`
 
         # SSHのポートを閉じる
         aws --profile cider-adhoc-deploy ec2 revoke-security-group-ingress --group-id ${SECURITY_GROUP} --protocol tcp --port 22 --cidr "$IP_ADDRESS"/32
