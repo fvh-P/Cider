@@ -43,6 +43,6 @@ struct LilyListView: View {
         .modifier(ResponsiveNavigationStyle())
         .onAppear { self.loadLilyList() }
         
-        .addPartialSheet(style: PartialSheetStyle(background: .solid(Color(UIColor.tertiarySystemBackground).opacity(0.0)), accentColor: .accentColor.opacity(0.0), enableCover: false, coverColor: .gray.opacity(0.0), cornerRadius: 16.0, minTopDistance: 100))
+        .addPartialSheet(style: PartialSheetStyle(background: .solid(Color(UIColor.tertiarySystemBackground).opacity(0.0)), accentColor: Color.accentColor.opacity(0.0), enableCover: false, coverColor: Color.gray.opacity(0.0), cornerRadius: 16.0, minTopDistance: 100))
     }
 }
