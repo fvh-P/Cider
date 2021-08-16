@@ -1,0 +1,57 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:ios)
+
+platform :ios do
+  desc "Push a new beta build to TestFlight"
+
+  lane :certificate_adhoc do
+    setup_ci
+
+    match(
+      type: "adhoc",
+      readonly: true,
+      git_url: "https://github.com/fvh-P/Cider-certificates.git",
+      git_basic_authorization: Base64.strict_encode64("#{ENV["GITHUB_USERNAME"]}:#{ENV["GITHUB_PERSONAL_ACCESS_TOKEN"]}"),
+      storage_mode: "git",
+      app_identifier: "net.fvhp.lily.Cider",
+      username: ENV["APPLE_ID"]
+    )
+  end
+  
+  lane :adhoc do
+    build_app(
+      scheme: "Cider",
+      output_directory: "./",
+      export_options: {
+        method: "ad-hoc",
+        manifest: {
+            appURL: "https://cider.lily.fvhp.net/Cider.ipa",
+            displayImageURL: "https://cider.lily.fvhp.net/image57.png",
+            fullSizeImageURL: "https://cider.lily.fvhp.net/image512.png"
+        },
+        provisioningProfiles: {
+            "net.fvhp.lily.Cider" => "match AdHoc net.fvhp.lily.Cider"
+        }
+      }
+    )
+  end
+
+  lane :beta do
+    build_app(scheme: "Cider")
+    upload_to_testflight
+  end
+end

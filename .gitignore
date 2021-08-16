@@ -29,6 +29,7 @@ DerivedData/
 *.ipa
 *.dSYM.zip
 *.dSYM
+manifest.plist
 
 ## Playgrounds
 timeline.xctimeline
@@ -81,6 +82,7 @@ fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots/**/*.png
 fastlane/test_output
+fastlane/README.md
 
 # Code Injection
 #
@@ -90,3 +92,4 @@ fastlane/test_output
 iOSInjectionProject/
 
 .DS_Store
+.env
