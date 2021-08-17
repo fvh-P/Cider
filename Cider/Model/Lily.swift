@@ -482,4 +482,19 @@ extension Lily {
         })
     }
     
+    public static func convertForCharmUser(from dict: Dictionary<String, [Triple]>, bnodes: Dictionary<String, [Triple]>) -> [Lily] {
+        return dict.map({ (key, triples) -> Lily in
+            let name = TriplesHelper.findOne(triples: triples, predicate: "\(Self.schema)name")?.object.value
+            let charm = TriplesHelper.findMany(triples: triples, predicate: "\(Self.lily)charm").compactMap({t -> LilyCharm? in
+                guard let bnodeTriples = bnodes[t.object.value] else { return nil }
+                let resource = TriplesHelper.findOne(triples: bnodeTriples, predicate: "\(Self.lily)resource")?.object.value
+                let usedIn = TriplesHelper.findMany(triples: bnodeTriples, predicate: "\(Self.lily)usedIn").map { $0.object.value }
+                let additionalInformation = TriplesHelper.findMany(triples: bnodeTriples, predicate: "\(Self.lily)additionalInformation").map { $0.object.value }
+                return LilyCharm(charm: Charm(resource: resource ?? ""), usedIn: usedIn, additinoalInformation: additionalInformation)
+            })
+            let RDFType = TriplesHelper.findOne(triples: triples, predicate: "\(Self.rdf)type")?.object.value
+            return Lily(resource: key, name: name, charm: charm, RDFType: RDFType)
+        })
+    }
+    
 }

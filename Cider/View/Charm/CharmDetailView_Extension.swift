@@ -46,7 +46,13 @@ extension CharmDetailView {
                             && URL(string: triple.subject.value)?.lastPathComponent != resourceName
                     })
                 })
-                let lilies = Lily.convertForRelations(from: dict_lilies)
+                
+                let bnodes = dict.filter({(key, triples) -> Bool in
+                    triples.contains(where: {triple -> Bool in
+                        triple.subject.type == "bnode"
+                    })
+                })
+                let lilies = Lily.convertForCharmUser(from: dict_lilies, bnodes: bnodes)
                 let dict_corporations = dict.filter({(key, triples) -> Bool in
                     triples.contains(where: {triple -> Bool in
                         triple.object.value == "https://lily.fvhp.net/rdf/IRIs/lily_schema.ttl#Corporation"
@@ -56,6 +62,7 @@ extension CharmDetailView {
                 let charm_triples = dict[resource]!
                 
                 self.charm = Charm.convertForDetailView(from: resource, triples: charm_triples, charms: charms, lilies: lilies, corporations: corporations)
+                self.expanded = Array<Bool>(repeating: false, count: self.charm!.user.count)
             }
             else {
                 print("エラー: \(res.statusCode)")

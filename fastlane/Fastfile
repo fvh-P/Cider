@@ -33,6 +33,7 @@ platform :ios do
   end
   
   lane :adhoc do
+    increment_build_number
     build_app(
       scheme: "Cider",
       output_directory: "./",

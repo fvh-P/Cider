@@ -8,11 +8,13 @@
 import SwiftUI
 
 struct ListSingleLineRow: View {
-    let title: String
+    let title: String?
     let value: String?
     var body: some View {
         HStack {
-            Text(title)
+            if let t = title {
+                Text(t)
+            }
             Spacer()
             if let v = value {
                 Text(v)
