@@ -497,6 +497,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 0.1;
 				DEVELOPMENT_ASSET_PATHS = "\"Cider/Preview Content\"";
 				DEVELOPMENT_TEAM = JQ342Z7S5L;
 				ENABLE_PREVIEWS = YES;
@@ -512,6 +513,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
@@ -522,6 +524,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Distribution: Kosuke Kurihara (JQ342Z7S5L)";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 0.1;
 				DEVELOPMENT_ASSET_PATHS = "\"Cider/Preview Content\"";
 				DEVELOPMENT_TEAM = JQ342Z7S5L;
 				ENABLE_PREVIEWS = YES;
@@ -537,6 +540,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "match AdHoc net.fvhp.lily.Cider";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
 		};
