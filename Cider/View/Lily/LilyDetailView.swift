@@ -120,7 +120,7 @@ struct LilyDetailView: View {
                 if lily?.charm != nil && lily!.charm.count > 0 {
                     DisclosureGroup(isExpanded: $charmExpanded) {
                         ForEach(lily!.charm) { lilyCharm in
-                            NavigationLink(destination: CharmDetailView(resource: lilyCharm.charm.resource, charm: nil, expanded: [])) {
+                            NavigationLink(destination: CharmDetailView(resource: lilyCharm.charm.resource, charm: nil)) {
                                 Text(self.charmText(lilyCharm: lilyCharm))
                                     .frame(alignment: .trailing)
                             }

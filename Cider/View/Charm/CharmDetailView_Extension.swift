@@ -62,7 +62,6 @@ extension CharmDetailView {
                 let charm_triples = dict[resource]!
                 
                 self.charm = Charm.convertForDetailView(from: resource, triples: charm_triples, charms: charms, lilies: lilies, corporations: corporations)
-                self.expanded = Array<Bool>(repeating: false, count: self.charm!.user.count)
             }
             else {
                 print("エラー: \(res.statusCode)")

@@ -15,7 +15,7 @@ struct CharmListView: View {
             List {
                 CharmListSearchBox(searchText: $searchText, searchExpanded: false)
                 ForEach(filteredCharms) { charm in
-                    NavigationLink(destination: CharmDetailView(resource: charm.resource, charm: nil, expanded: [])) {
+                    NavigationLink(destination: CharmDetailView(resource: charm.resource, charm: nil)) {
                         CharmCardView(charm: charm)
                     }
                 }

@@ -17,6 +17,7 @@
 		290274B426C178BB0006EE57 /* CharmDetailViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290274B326C178BB0006EE57 /* CharmDetailViewHeader.swift */; };
 		290274B626C192180006EE57 /* CharmListSearchBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290274B526C192180006EE57 /* CharmListSearchBox.swift */; };
 		299556C926A1571E008B426E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29CAA3AE269FD974004C1315 /* Assets.xcassets */; };
+		29BBD6F826CEB9D6005F30BA /* CharmUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BBD6F726CEB9D6005F30BA /* CharmUserView.swift */; };
 		29CAA3AB269FD973004C1315 /* CiderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CAA3AA269FD973004C1315 /* CiderApp.swift */; };
 		29CAA3AD269FD973004C1315 /* LilyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CAA3AC269FD973004C1315 /* LilyListView.swift */; };
 		29CAA3B2269FD974004C1315 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29CAA3B1269FD974004C1315 /* Preview Assets.xcassets */; };
@@ -65,6 +66,7 @@
 		290274B126C177490006EE57 /* CharmDetailView_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharmDetailView_Extension.swift; sourceTree = "<group>"; };
 		290274B326C178BB0006EE57 /* CharmDetailViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharmDetailViewHeader.swift; sourceTree = "<group>"; };
 		290274B526C192180006EE57 /* CharmListSearchBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharmListSearchBox.swift; sourceTree = "<group>"; };
+		29BBD6F726CEB9D6005F30BA /* CharmUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharmUserView.swift; sourceTree = "<group>"; };
 		29CAA3A7269FD973004C1315 /* Cider.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cider.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29CAA3AA269FD973004C1315 /* CiderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CiderApp.swift; sourceTree = "<group>"; };
 		29CAA3AC269FD973004C1315 /* LilyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LilyListView.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 				290274A726C12E910006EE57 /* CharmListView_Extension.swift */,
 				290274AD26C13BBB0006EE57 /* CharmCardView.swift */,
 				290274AF26C176A40006EE57 /* CharmDetailView.swift */,
+				29BBD6F726CEB9D6005F30BA /* CharmUserView.swift */,
 				290274B326C178BB0006EE57 /* CharmDetailViewHeader.swift */,
 				290274B126C177490006EE57 /* CharmDetailView_Extension.swift */,
 			);
@@ -334,6 +337,7 @@
 				29CC6C9B26AFFC880062EF80 /* LilyDetailViewHeader.swift in Sources */,
 				290274A826C12E910006EE57 /* CharmListView_Extension.swift in Sources */,
 				29CAA3C326A03618004C1315 /* LilyListView_Extension.swift in Sources */,
+				29BBD6F826CEB9D6005F30BA /* CharmUserView.swift in Sources */,
 				29CC6CA326B27A220062EF80 /* LilyListSearchBox.swift in Sources */,
 				290274AA26C131050006EE57 /* DecimalExtension.swift in Sources */,
 				29CC6C8726A1F5E70062EF80 /* Cast.swift in Sources */,
