@@ -16,6 +16,7 @@
 		290274B226C177490006EE57 /* CharmDetailView_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290274B126C177490006EE57 /* CharmDetailView_Extension.swift */; };
 		290274B426C178BB0006EE57 /* CharmDetailViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290274B326C178BB0006EE57 /* CharmDetailViewHeader.swift */; };
 		290274B626C192180006EE57 /* CharmListSearchBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290274B526C192180006EE57 /* CharmListSearchBox.swift */; };
+		296EBFC526D2BBA00085C33D /* ListItemsWrapRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296EBFC426D2BBA00085C33D /* ListItemsWrapRow.swift */; };
 		299556C926A1571E008B426E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29CAA3AE269FD974004C1315 /* Assets.xcassets */; };
 		29BBD6F826CEB9D6005F30BA /* CharmUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BBD6F726CEB9D6005F30BA /* CharmUserView.swift */; };
 		29CAA3AB269FD973004C1315 /* CiderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CAA3AA269FD973004C1315 /* CiderApp.swift */; };
@@ -66,6 +67,7 @@
 		290274B126C177490006EE57 /* CharmDetailView_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharmDetailView_Extension.swift; sourceTree = "<group>"; };
 		290274B326C178BB0006EE57 /* CharmDetailViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharmDetailViewHeader.swift; sourceTree = "<group>"; };
 		290274B526C192180006EE57 /* CharmListSearchBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharmListSearchBox.swift; sourceTree = "<group>"; };
+		296EBFC426D2BBA00085C33D /* ListItemsWrapRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemsWrapRow.swift; sourceTree = "<group>"; };
 		29BBD6F726CEB9D6005F30BA /* CharmUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharmUserView.swift; sourceTree = "<group>"; };
 		29CAA3A7269FD973004C1315 /* Cider.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cider.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29CAA3AA269FD973004C1315 /* CiderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CiderApp.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				29CC6C9826AFF99C0062EF80 /* RelationshipListRow.swift */,
 				29CC6D0F26BC4EA50062EF80 /* CastListRow.swift */,
 				29CC6C9426AFB3080062EF80 /* ListMultiLineRow.swift */,
+				296EBFC426D2BBA00085C33D /* ListItemsWrapRow.swift */,
 				29CC6C9226AEB5AB0062EF80 /* ListSingleLineRow.swift */,
 			);
 			path = Component;
@@ -334,6 +337,7 @@
 				290274A626C12D840006EE57 /* CharmListView.swift in Sources */,
 				29CC6CA126B2790C0062EF80 /* ViewExtension.swift in Sources */,
 				29CC6D1026BC4EA50062EF80 /* CastListRow.swift in Sources */,
+				296EBFC526D2BBA00085C33D /* ListItemsWrapRow.swift in Sources */,
 				29CC6C9B26AFFC880062EF80 /* LilyDetailViewHeader.swift in Sources */,
 				290274A826C12E910006EE57 /* CharmListView_Extension.swift in Sources */,
 				29CAA3C326A03618004C1315 /* LilyListView_Extension.swift in Sources */,

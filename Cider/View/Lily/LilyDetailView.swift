@@ -56,9 +56,9 @@ struct LilyDetailView: View {
                 ListSingleLineRow(title: "体重", value: lily?.weight == nil ? nil : "\(Int((lily?.weight)!)) kg")
                 ListSingleLineRow(title: "血液型", value: lily?.bloodType)
                 ListSingleLineRow(title: "出身地", value: lily?.birthPlace)
-                ListMultiLineRow(title: "好きなもの", values: lily?.favorite)
-                ListMultiLineRow(title: "苦手なもの", values: lily?.notGood)
-                ListMultiLineRow(title: "趣味・特技", values: lily?.hobbyTalent)
+                ListItemsWrapRow(title: "好きなもの", items: lily?.favorite)
+                ListItemsWrapRow(title: "苦手なもの", items: lily?.notGood)
+                ListItemsWrapRow(title: "趣味・特技", items: lily?.hobbyTalent)
             }
             Section(header: Text("スキル・CHARM情報")) {
                 HStack {
