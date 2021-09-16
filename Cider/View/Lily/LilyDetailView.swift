@@ -15,8 +15,11 @@ struct LilyDetailView: View {
         List {
             Section(header: LilyDetailViewHeader(lily: lily)) {}
             Section(header: Text("ガーデン・レギオン情報")) {
-                ListSingleLineRow(title: "所属ガーデン", value: lily?.garden)
-                
+                if let garden = lily?.garden {
+                    ListSingleLineNavLinkRow(title: "所属ガーデン", value: garden, destination: AnyView(LilyListView(gardenSelection: garden, lilies: [])))
+                } else {
+                    ListSingleLineRow(title: "所属ガーデン", value: nil)
+                }
                 if let gardenDepartment = lily?.gardenDepartment {
                     ListSingleLineRow(title: "学科", value: gardenDepartment)
                 }
@@ -32,14 +35,16 @@ struct LilyDetailView: View {
                     ListMultiLineRow(title: "ガーデン役職", values: lily!.gardenJobTitle)
                 }
                 
-                let legionText = (lily?.legion?.name == nil)
-                    ? nil
-                    : (lily?.legion?.name)!
-                        + (lily?.legion?.alternateName != nil
-                            ? " (\((lily?.legion?.alternateName)!))"
-                            : "")
-                ListSingleLineRow(title: "所属レギオン", value: legionText)
-                
+                if let legionText = (lily?.legion?.name == nil)
+                        ? nil
+                        : (lily?.legion?.name)!
+                            + (lily?.legion?.alternateName != nil
+                                ? " (\((lily?.legion?.alternateName)!))"
+                                : "") {
+                    ListSingleLineNavLinkRow(title: "所属レギオン", value: legionText, destination: AnyView(LilyListView(legionSelection: lily?.legion?.name ?? "指定なし", lilies: [])))
+                } else {
+                    ListSingleLineRow(title: "所属レギオン", value: nil)
+                }
                 if lily != nil && lily!.legionJobTitle.count > 0 {
                     ListSingleLineRow(title: "レギオン役職", value: lily!.legionJobTitle.joined(separator: ", "))
                 }

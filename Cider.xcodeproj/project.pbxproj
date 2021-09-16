@@ -16,6 +16,7 @@
 		290274B226C177490006EE57 /* CharmDetailView_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290274B126C177490006EE57 /* CharmDetailView_Extension.swift */; };
 		290274B426C178BB0006EE57 /* CharmDetailViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290274B326C178BB0006EE57 /* CharmDetailViewHeader.swift */; };
 		290274B626C192180006EE57 /* CharmListSearchBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290274B526C192180006EE57 /* CharmListSearchBox.swift */; };
+		29567E0C26F372B400CFB7FD /* ListSingleLineNavLinkRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29567E0B26F372B400CFB7FD /* ListSingleLineNavLinkRow.swift */; };
 		296EBFC526D2BBA00085C33D /* ListItemsWrapRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296EBFC426D2BBA00085C33D /* ListItemsWrapRow.swift */; };
 		299556C926A1571E008B426E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29CAA3AE269FD974004C1315 /* Assets.xcassets */; };
 		29BBD6F826CEB9D6005F30BA /* CharmUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BBD6F726CEB9D6005F30BA /* CharmUserView.swift */; };
@@ -67,6 +68,7 @@
 		290274B126C177490006EE57 /* CharmDetailView_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharmDetailView_Extension.swift; sourceTree = "<group>"; };
 		290274B326C178BB0006EE57 /* CharmDetailViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharmDetailViewHeader.swift; sourceTree = "<group>"; };
 		290274B526C192180006EE57 /* CharmListSearchBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharmListSearchBox.swift; sourceTree = "<group>"; };
+		29567E0B26F372B400CFB7FD /* ListSingleLineNavLinkRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSingleLineNavLinkRow.swift; sourceTree = "<group>"; };
 		296EBFC426D2BBA00085C33D /* ListItemsWrapRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemsWrapRow.swift; sourceTree = "<group>"; };
 		29BBD6F726CEB9D6005F30BA /* CharmUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharmUserView.swift; sourceTree = "<group>"; };
 		29CAA3A7269FD973004C1315 /* Cider.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cider.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -134,6 +136,7 @@
 				29CC6C9426AFB3080062EF80 /* ListMultiLineRow.swift */,
 				296EBFC426D2BBA00085C33D /* ListItemsWrapRow.swift */,
 				29CC6C9226AEB5AB0062EF80 /* ListSingleLineRow.swift */,
+				29567E0B26F372B400CFB7FD /* ListSingleLineNavLinkRow.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -371,6 +374,7 @@
 				29CC6C9F26B277020062EF80 /* GardenPicker.swift in Sources */,
 				29CC6C9126A88E290062EF80 /* DateHelper.swift in Sources */,
 				290274B426C178BB0006EE57 /* CharmDetailViewHeader.swift in Sources */,
+				29567E0C26F372B400CFB7FD /* ListSingleLineNavLinkRow.swift in Sources */,
 				29CC6CAB26B338F30062EF80 /* SkillPicker.swift in Sources */,
 				29CAA3BD26A02B79004C1315 /* Lily.swift in Sources */,
 				29CC6CA726B283F10062EF80 /* UIApplicationExtension.swift in Sources */,
