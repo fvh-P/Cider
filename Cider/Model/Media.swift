@@ -7,13 +7,62 @@
 
 import Foundation
 
-enum Media: Identifiable {
+enum Media: Identifiable, Codable {
+    
     var id: UUID { UUID() }
     
     case play(Play)
     case game(Game)
     case animeSeries(AnimeSeries)
     case book(Book)
+}
+
+extension Media {
+    private enum CodingKeys: String, CodingKey {
+        case play
+        case game
+        case animeSeries
+        case book
+    }
+    
+    enum PostTypeCodingError: Error {
+        case decoding(String)
+    }
+    
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        if let value = try? values.decode(Play.self, forKey: .play) {
+            self = .play(value)
+            return
+        }
+        if let value = try? values.decode(Game.self, forKey: .game) {
+            self = .game(value)
+            return
+        }
+        if let value = try? values.decode(AnimeSeries.self, forKey: .animeSeries) {
+            self = .animeSeries(value)
+            return
+        }
+        if let value = try? values.decode(Book.self, forKey: .book) {
+            self = .book(value)
+            return
+        }
+        throw PostTypeCodingError.decoding("Decode Error!\n \(dump(values))")
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        switch self {
+        case .play(let play):
+            try container.encode(play, forKey: .play)
+        case .game(let game):
+            try container.encode(game, forKey: .game)
+        case .animeSeries(let animeSeries):
+            try container.encode(animeSeries, forKey: .animeSeries)
+        case .book(let book):
+            try container.encode(book, forKey: .book)
+        }
+    }
     
     private static let schema = "http://schema.org/"
     private static let lily = "https://lily.fvhp.net/rdf/IRIs/lily_schema.ttl#"
@@ -67,7 +116,7 @@ enum Media: Identifiable {
     }
 }
 
-class Play {
+class Play: Identifiable, Codable {
     var resource: String
     var genre: String?
     var name: String?
@@ -83,7 +132,7 @@ class Play {
     }
 }
 
-class Game {
+class Game: Identifiable, Codable {
     var resource: String
     var genre: String?
     var name: String?
@@ -99,7 +148,7 @@ class Game {
     }
 }
 
-class AnimeSeries {
+class AnimeSeries: Identifiable, Codable {
     var resource: String
     var genre: String?
     var name: String?
@@ -113,7 +162,7 @@ class AnimeSeries {
     }
 }
 
-class Book {
+class Book: Identifiable, Codable {
     var resource: String
     var genre: String?
     var name: String?

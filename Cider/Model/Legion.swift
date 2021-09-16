@@ -5,7 +5,7 @@
 //  Created by ふぁぼ原 on 2021/07/15.
 //
 
-struct Legion {
+struct Legion: Codable {
     var resource: String
     var name: String?
     var alternateName: String?

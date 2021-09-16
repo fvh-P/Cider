@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Charm: Identifiable {
+class Charm: Identifiable, Codable {
     var resource: String
     var productID: String?
     var seriesName: String?

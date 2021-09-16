@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-class Lily: Identifiable {
+class Lily: Identifiable, Codable {
     var resource: String
     var familyName: String?
     var familyNameKana: String?
@@ -230,20 +230,20 @@ class Lily: Identifiable {
     }
 }
 
-struct LilyCharm: Identifiable {
+struct LilyCharm: Identifiable, Codable {
     var id = UUID()
     var charm: Charm
     var usedIn: [String]
     var additinoalInformation: [String]
 }
 
-struct Relationship: Identifiable {
+struct Relationship: Identifiable, Codable {
     var id = UUID()
     var value: Lily
     var relation: [String]
 }
 
-struct LilyCast :Identifiable {
+struct LilyCast :Identifiable, Codable {
     var id = UUID()
     var name: String?
     var performIn: [Media]
