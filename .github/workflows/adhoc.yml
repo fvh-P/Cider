@@ -62,7 +62,7 @@ jobs:
         sleep 5
         
         # SCPでファイルをコピー
-        scp -v -i .ssh/id_ed25519 -oStrictHostKeyChecking=no Cider.ipa manifest.plist $SCP_DESTINATION
+        scp -i .ssh/id_ed25519 -oStrictHostKeyChecking=no Cider.ipa manifest.plist $SCP_DESTINATION
     - name: close port
       env:
         SECURITY_GROUP: ${{ secrets.AWS_SECURITY_GROUP_ID }}
