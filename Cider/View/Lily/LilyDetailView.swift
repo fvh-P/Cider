@@ -32,7 +32,12 @@ struct LilyDetailView: View {
                 
                 
                 if lily != nil && lily!.gardenJobTitle.count > 0 {
-                    ListMultiLineRow(title: "ガーデン役職", values: lily!.gardenJobTitle)
+                    ListMultiLineRow(title: "ガーデン役職", values: lily!.gardenJobTitle) { str in
+                        HStack {
+                            Spacer()
+                            Text(str)
+                        }
+                    }
                 }
                 
                 if let legionText = (lily?.legion?.name == nil)
@@ -66,59 +71,46 @@ struct LilyDetailView: View {
                 ListItemsWrapRow(title: "趣味・特技", items: lily?.hobbyTalent)
             }
             Section(header: Text("スキル・CHARM情報")) {
-                HStack {
-                    Text("レアスキル")
-                    Spacer()
-                    if let rareSkill = lily?.rareSkill {
-                        Text(rareSkill)
-                        if let iconString = lily?.rareSkillLabelString {
-                            Image(systemName: iconString)
+                if let rareSkill = lily?.rareSkill {
+                    NavigationLink(destination: LilyListView(skillSelection: rareSkill, lilies: [])) {
+                        HStack {
+                            Text("レアスキル")
+                            Spacer()
+                            Text(rareSkill)
+                            if let iconString = lily?.rareSkillLabelString {
+                                Image(systemName: iconString)
+                            }
                         }
-                    } else {
-                        Text("N/A")
-                            .foregroundColor(.gray)
+                    }
+                } else {
+                    Text("N/A")
+                        .foregroundColor(.gray)
+                }
+                
+                ListMultiLineRow(title: "サブスキル", values: lily?.subSkill) { skill in
+                    NavigationLink(destination: LilyListView(skillSelection: skill, lilies: [])) {
+                        HStack {
+                            Spacer()
+                            Text(skill)
+                            if let iconString = Lily.subSkillLabelString(str: skill) {
+                                Image(systemName: iconString)
+                            }
+                        }
                     }
                 }
                 
-                HStack {
-                    Text("サブスキル")
-                    Spacer()
-                    if lily != nil && (lily?.subSkill.count)! > 0 {
-                        VStack(alignment: .trailing) {
-                            ForEach((lily?.subSkill)!, id:\.self) { sub in
-                                HStack {
-                                    Text(sub)
-                                    if let iconString = Lily.subSkillLabelString(str: sub) {
-                                        Image(systemName: iconString)
-                                    }
+                if lily?.isBoosted == true {
+                    ListMultiLineRow(title: "ブーステッドスキル", values: lily?.boostedSkill) { skill in
+                        NavigationLink(destination: LilyListView(skillSelection: skill, lilies: [])) {
+                            HStack {
+                                Spacer()
+                                Text(skill)
+                                if let iconString = Lily.boostedSkillLabelString(str: skill) {
+                                    Image(systemName: iconString)
+                                        .foregroundColor("8b0000".convertToColor())
                                 }
-                                .padding(.top, 0.5)
                             }
                         }
-                        .padding(.bottom, 0.5)
-                    } else {
-                        Text("N/A")
-                            .foregroundColor(.gray)
-                    }
-                }
-                
-                if lily?.isBoosted == true && (lily?.boostedSkill.count)! > 0 {
-                    HStack {
-                        Text("ブーステッド\nスキル")
-                        Spacer()
-                        VStack(alignment: .trailing) {
-                            ForEach((lily?.boostedSkill)!, id:\.self) { bs in
-                                HStack {
-                                    Text(bs)
-                                    if let iconString = Lily.boostedSkillLabelString(str: bs) {
-                                        Image(systemName: iconString)
-                                            .foregroundColor("8b0000".convertToColor())
-                                    }
-                                }
-                                .padding(.top, 0.5)
-                            }
-                        }
-                        .padding(.bottom, 0.5)
                     }
                 }
                 

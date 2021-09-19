@@ -123,7 +123,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		290274ED26CA92150006EE57 /* Component */ = {
+		290274ED26CA92150006EE57 /* ViewComponent */ = {
 			isa = PBXGroup;
 			children = (
 				29CC6C9E26B277020062EF80 /* GardenPicker.swift */,
@@ -138,7 +138,7 @@
 				29CC6C9226AEB5AB0062EF80 /* ListSingleLineRow.swift */,
 				29567E0B26F372B400CFB7FD /* ListSingleLineNavLinkRow.swift */,
 			);
-			path = Component;
+			path = ViewComponent;
 			sourceTree = "<group>";
 		};
 		290274EE26CA92550006EE57 /* View */ = {
@@ -196,11 +196,11 @@
 		29CAA3A9269FD973004C1315 /* Cider */ = {
 			isa = PBXGroup;
 			children = (
-				290274ED26CA92150006EE57 /* Component */,
 				29CC6CB326B5B1820062EF80 /* PartialSheet */,
 				29CAA3C926A046C5004C1315 /* Helper */,
 				29CAA3B9269FE8D3004C1315 /* Model */,
 				290274EE26CA92550006EE57 /* View */,
+				290274ED26CA92150006EE57 /* ViewComponent */,
 				29CAA3AA269FD973004C1315 /* CiderApp.swift */,
 				29CAA3AE269FD974004C1315 /* Assets.xcassets */,
 				29CAA3B3269FD974004C1315 /* Info.plist */,

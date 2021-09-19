@@ -7,18 +7,16 @@
 
 import SwiftUI
 
-struct ListMultiLineRow: View {
+struct ListMultiLineRow<Content>: View where Content: View {
     let title: String
     let values: [String]?
+    let content: (String) -> Content?
     @State var isExpanded = false
     var body: some View {
         if values != nil && values!.count > 0 {
             DisclosureGroup(isExpanded: $isExpanded) {
                 ForEach(values!, id:\.self) { v in
-                    HStack {
-                        Spacer()
-                        Text(v)
-                    }
+                    self.content(v)
                 }
                 .padding(.bottom, 0.5)
             } label: {
@@ -39,6 +37,12 @@ struct ListMultiLineRow: View {
                     .foregroundColor(.gray)
             }
         }
+    }
+    
+    init(title: String, values: [String]?, @ViewBuilder content: @escaping (String) -> Content? = {_ in nil}) {
+        self.title = title
+        self.values = values
+        self.content = content
     }
 }
 

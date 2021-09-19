@@ -17,6 +17,24 @@ struct LilyListSearchBox: View {
     var legions: [String]
     var skills: [[String]]
     @State var searchExpanded = false
+    
+    var selectionsText: String {
+        if self.searchExpanded || self.gardenSelection == "指定なし" && self.legionSelection == "指定なし"  && self.skillSelection == "指定なし"  {
+            return ""
+        }
+        var selections: [String] = []
+        if self.gardenSelection != "指定なし" {
+            selections.append(self.gardenSelection)
+        }
+        if self.legionSelection != "指定なし" {
+            selections.append(self.legionSelection)
+        }
+        if self.skillSelection != "指定なし" {
+            selections.append(self.skillSelection)
+        }
+        return ": [\(selections.joined(separator: ", "))]"
+    }
+    
     var body: some View {
         DisclosureGroup(
             isExpanded: $searchExpanded,
@@ -76,7 +94,7 @@ struct LilyListSearchBox: View {
                 }
             },
             label: {
-                Text("絞り込み")
+                Text("絞り込み\(self.selectionsText)")
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .contentShape(Rectangle())
                     .onTapGesture {
