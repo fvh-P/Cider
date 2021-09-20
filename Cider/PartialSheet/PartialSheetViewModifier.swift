@@ -36,11 +36,11 @@ struct PartialSheet: ViewModifier {
         let bottomSafeArea = (UIApplication.shared.windows.first?.safeAreaInsets.bottom ?? 0)
         
         let calculatedTop =
-            presenterContentRect.height +
-            topSafeArea +
-            bottomSafeArea -
-            sheetContentRect.height -
-            handlerSectionHeight
+            presenterContentRect.height
+            + topSafeArea
+            + bottomSafeArea
+            - sheetContentRect.height
+            - handlerSectionHeight
           
         guard calculatedTop < style.minTopDistance else {
             return calculatedTop

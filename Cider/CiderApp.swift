@@ -13,7 +13,7 @@ struct CiderApp: App {
     var body: some Scene {
         WindowGroup {
             TabView {
-                LilyListView(lilies: [])
+                LilyNavigationView()
                     .environmentObject(sheetManager)
                     .onAppear(perform: UIApplication.shared.addTapGestureRecognizer)
                     .tabItem { Label("リリィ一覧", systemImage: "person.crop.rectangle.fill") }
