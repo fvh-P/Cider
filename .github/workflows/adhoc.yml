@@ -13,6 +13,12 @@ jobs:
     - uses: actions/checkout@v1
     - name: Select Xcode
       run: sudo xcode-select -s '/Applications/Xcode_12.4.app/Contents/Developer'
+    - uses: actions/cache@v2
+      with:
+        path: Carthage
+        key: ${{ runner.os }}-carthage-${{ hashFiles('**/Cartfile.resolved') }}
+        restore-keys: |
+          ${{ runner.os }}-carthage-
     - name: Run fastlane adhoc
       env:
         GITHUB_USERNAME: ${{ secrets.GH_USERNAME }}
