@@ -23,7 +23,7 @@ platform :ios do
     carthage(platform: "iOS", use_netrc: false, cache_builds: true, use_binaries: false, use_xcframeworks: true)
   end
   
-  lane :certificate_adhoc do
+  lane :adhoc do
     setup_ci
 
     match(
@@ -35,9 +35,6 @@ platform :ios do
       app_identifier: "net.fvhp.lily.Cider",
       username: ENV["APPLE_ID"]
     )
-  end
-  
-  lane :adhoc do
     increment_build_number
     build_app(
       scheme: "Cider",
