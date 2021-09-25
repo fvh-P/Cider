@@ -40,9 +40,9 @@ extension CharmListView {
             }
             
             if res.statusCode == 200 {
-                var result: SparqlResult?
+                var result: SparqlResponse?
                 do {
-                    result = try JSONDecoder().decode(SparqlResult.self, from: data)
+                    result = try JSONDecoder().decode(SparqlResponse.self, from: data)
                 } catch {
                     print("JSON parse error")
                 }

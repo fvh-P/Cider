@@ -10,7 +10,7 @@ import SwiftUI
 struct LilyNavigationView: View {
     var body: some View {
         NavigationView {
-            LilyListView(lilies: [])
+            LilyListView()
         }
         .modifier(ResponsiveNavigationStyle())
     }

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,18 +17,27 @@
 		290274B426C178BB0006EE57 /* CharmDetailViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290274B326C178BB0006EE57 /* CharmDetailViewHeader.swift */; };
 		290274B626C192180006EE57 /* CharmListSearchBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290274B526C192180006EE57 /* CharmListSearchBox.swift */; };
 		29567E0C26F372B400CFB7FD /* ListSingleLineNavLinkRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29567E0B26F372B400CFB7FD /* ListSingleLineNavLinkRow.swift */; };
-		29567E1626F8F01400CFB7FD /* LilyNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29567E1526F8F01400CFB7FD /* LilyNavigationView.swift */; };
 		296EBFC526D2BBA00085C33D /* ListItemsWrapRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296EBFC426D2BBA00085C33D /* ListItemsWrapRow.swift */; };
 		299556C926A1571E008B426E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29CAA3AE269FD974004C1315 /* Assets.xcassets */; };
+		29A7CFC626FDD07A00FFCC2B /* SparqlAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A7CFC526FDD07A00FFCC2B /* SparqlAPI.swift */; };
+		29A7CFC826FDD08500FFCC2B /* LilyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A7CFC726FDD08500FFCC2B /* LilyRepository.swift */; };
+		29A7CFCA26FDD27200FFCC2B /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 29A7CFC926FDD27200FFCC2B /* Cartfile */; };
+		29A7CFD326FDD8F400FFCC2B /* Moya.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29A7CFCC26FDD74C00FFCC2B /* Moya.xcframework */; };
+		29A7CFD426FDD8F400FFCC2B /* Moya.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 29A7CFCC26FDD74C00FFCC2B /* Moya.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		29A7CFD826FDD9EA00FFCC2B /* SparqlConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A7CFD726FDD9EA00FFCC2B /* SparqlConstant.swift */; };
+		29A7CFDA26FDDE7A00FFCC2B /* LilyNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A7CFD926FDDE7A00FFCC2B /* LilyNavigationView.swift */; };
+		29A7CFDC26FDDEA700FFCC2B /* Alamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29A7CFDB26FDDEA700FFCC2B /* Alamofire.xcframework */; };
+		29A7CFDD26FDDEA700FFCC2B /* Alamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 29A7CFDB26FDDEA700FFCC2B /* Alamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		29A7CFDF26FF392100FFCC2B /* LoadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A7CFDE26FF392100FFCC2B /* LoadingState.swift */; };
+		29A7CFE826FF578200FFCC2B /* LilyListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A7CFE726FF578200FFCC2B /* LilyListViewModel.swift */; };
 		29BBD6F826CEB9D6005F30BA /* CharmUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BBD6F726CEB9D6005F30BA /* CharmUserView.swift */; };
 		29CAA3AB269FD973004C1315 /* CiderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CAA3AA269FD973004C1315 /* CiderApp.swift */; };
 		29CAA3AD269FD973004C1315 /* LilyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CAA3AC269FD973004C1315 /* LilyListView.swift */; };
 		29CAA3B2269FD974004C1315 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29CAA3B1269FD974004C1315 /* Preview Assets.xcassets */; };
-		29CAA3BB269FE8F2004C1315 /* SparqlResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CAA3BA269FE8F2004C1315 /* SparqlResult.swift */; };
+		29CAA3BB269FE8F2004C1315 /* SparqlResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CAA3BA269FE8F2004C1315 /* SparqlResponse.swift */; };
 		29CAA3BD26A02B79004C1315 /* Lily.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CAA3BC26A02B79004C1315 /* Lily.swift */; };
 		29CAA3BF26A02C1A004C1315 /* StringHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CAA3BE26A02C1A004C1315 /* StringHelper.swift */; };
 		29CAA3C126A02D4B004C1315 /* Legion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CAA3C026A02D4B004C1315 /* Legion.swift */; };
-		29CAA3C326A03618004C1315 /* LilyListView_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CAA3C226A03618004C1315 /* LilyListView_Extension.swift */; };
 		29CAA3CB26A046DE004C1315 /* TriplesHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CAA3CA26A046DE004C1315 /* TriplesHelper.swift */; };
 		29CAA3CD26A05492004C1315 /* LilyCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CAA3CC26A05492004C1315 /* LilyCardView.swift */; };
 		29CC6C8126A1E2400062EF80 /* LilyDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CC6C8026A1E2400062EF80 /* LilyDetailView.swift */; };
@@ -59,6 +68,21 @@
 		29CC6D1026BC4EA50062EF80 /* CastListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CC6D0F26BC4EA50062EF80 /* CastListRow.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		29A7CFD526FDD8F400FFCC2B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				29A7CFDD26FDDEA700FFCC2B /* Alamofire.xcframework in Embed Frameworks */,
+				29A7CFD426FDD8F400FFCC2B /* Moya.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		290274A526C12D840006EE57 /* CharmListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharmListView.swift; sourceTree = "<group>"; };
 		290274A726C12E910006EE57 /* CharmListView_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharmListView_Extension.swift; sourceTree = "<group>"; };
@@ -70,8 +94,16 @@
 		290274B326C178BB0006EE57 /* CharmDetailViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharmDetailViewHeader.swift; sourceTree = "<group>"; };
 		290274B526C192180006EE57 /* CharmListSearchBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharmListSearchBox.swift; sourceTree = "<group>"; };
 		29567E0B26F372B400CFB7FD /* ListSingleLineNavLinkRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSingleLineNavLinkRow.swift; sourceTree = "<group>"; };
-		29567E1526F8F01400CFB7FD /* LilyNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LilyNavigationView.swift; sourceTree = "<group>"; };
 		296EBFC426D2BBA00085C33D /* ListItemsWrapRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemsWrapRow.swift; sourceTree = "<group>"; };
+		29A7CFC526FDD07A00FFCC2B /* SparqlAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SparqlAPI.swift; sourceTree = "<group>"; };
+		29A7CFC726FDD08500FFCC2B /* LilyRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LilyRepository.swift; sourceTree = "<group>"; };
+		29A7CFC926FDD27200FFCC2B /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
+		29A7CFCC26FDD74C00FFCC2B /* Moya.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Moya.xcframework; path = Carthage/Build/Moya.xcframework; sourceTree = "<group>"; };
+		29A7CFD726FDD9EA00FFCC2B /* SparqlConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SparqlConstant.swift; sourceTree = "<group>"; };
+		29A7CFD926FDDE7A00FFCC2B /* LilyNavigationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LilyNavigationView.swift; sourceTree = "<group>"; };
+		29A7CFDB26FDDEA700FFCC2B /* Alamofire.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Alamofire.xcframework; path = Carthage/Build/Alamofire.xcframework; sourceTree = "<group>"; };
+		29A7CFDE26FF392100FFCC2B /* LoadingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingState.swift; sourceTree = "<group>"; };
+		29A7CFE726FF578200FFCC2B /* LilyListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LilyListViewModel.swift; sourceTree = "<group>"; };
 		29BBD6F726CEB9D6005F30BA /* CharmUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharmUserView.swift; sourceTree = "<group>"; };
 		29CAA3A7269FD973004C1315 /* Cider.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cider.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29CAA3AA269FD973004C1315 /* CiderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CiderApp.swift; sourceTree = "<group>"; };
@@ -79,11 +111,10 @@
 		29CAA3AE269FD974004C1315 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		29CAA3B1269FD974004C1315 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		29CAA3B3269FD974004C1315 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		29CAA3BA269FE8F2004C1315 /* SparqlResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SparqlResult.swift; sourceTree = "<group>"; };
+		29CAA3BA269FE8F2004C1315 /* SparqlResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SparqlResponse.swift; sourceTree = "<group>"; };
 		29CAA3BC26A02B79004C1315 /* Lily.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lily.swift; sourceTree = "<group>"; };
 		29CAA3BE26A02C1A004C1315 /* StringHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringHelper.swift; sourceTree = "<group>"; };
 		29CAA3C026A02D4B004C1315 /* Legion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Legion.swift; sourceTree = "<group>"; };
-		29CAA3C226A03618004C1315 /* LilyListView_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LilyListView_Extension.swift; sourceTree = "<group>"; };
 		29CAA3CA26A046DE004C1315 /* TriplesHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriplesHelper.swift; sourceTree = "<group>"; };
 		29CAA3CC26A05492004C1315 /* LilyCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LilyCardView.swift; sourceTree = "<group>"; };
 		29CC6C8026A1E2400062EF80 /* LilyDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LilyDetailView.swift; sourceTree = "<group>"; };
@@ -119,6 +150,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29A7CFDC26FDDEA700FFCC2B /* Alamofire.xcframework in Frameworks */,
+				29A7CFD326FDD8F400FFCC2B /* Moya.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,12 +189,11 @@
 			isa = PBXGroup;
 			children = (
 				29CAA3AC269FD973004C1315 /* LilyListView.swift */,
-				29CAA3C226A03618004C1315 /* LilyListView_Extension.swift */,
 				29CAA3CC26A05492004C1315 /* LilyCardView.swift */,
 				29CC6C8026A1E2400062EF80 /* LilyDetailView.swift */,
 				29CC6C9A26AFFC880062EF80 /* LilyDetailViewHeader.swift */,
 				29CC6C8826A510720062EF80 /* LilyDetailView_Extension.swift */,
-				29567E1526F8F01400CFB7FD /* LilyNavigationView.swift */,
+				29A7CFD926FDDE7A00FFCC2B /* LilyNavigationView.swift */,
 			);
 			path = Lily;
 			sourceTree = "<group>";
@@ -180,11 +212,47 @@
 			path = Charm;
 			sourceTree = "<group>";
 		};
+		29A7CFC426FDD06C00FFCC2B /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				29A7CFC526FDD07A00FFCC2B /* SparqlAPI.swift */,
+				29A7CFC726FDD08500FFCC2B /* LilyRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		29A7CFCB26FDD74B00FFCC2B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				29A7CFDB26FDDEA700FFCC2B /* Alamofire.xcframework */,
+				29A7CFCC26FDD74C00FFCC2B /* Moya.xcframework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		29A7CFD626FDD9D500FFCC2B /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				29A7CFD726FDD9EA00FFCC2B /* SparqlConstant.swift */,
+			);
+			path = Constant;
+			sourceTree = "<group>";
+		};
+		29A7CFE626FF576700FFCC2B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				29A7CFE726FF578200FFCC2B /* LilyListViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		29CAA39E269FD973004C1315 = {
 			isa = PBXGroup;
 			children = (
+				29A7CFC926FDD27200FFCC2B /* Cartfile */,
 				29CAA3A9269FD973004C1315 /* Cider */,
 				29CAA3A8269FD973004C1315 /* Products */,
+				29A7CFCB26FDD74B00FFCC2B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -199,10 +267,13 @@
 		29CAA3A9269FD973004C1315 /* Cider */ = {
 			isa = PBXGroup;
 			children = (
+				29A7CFD626FDD9D500FFCC2B /* Constant */,
 				29CC6CB326B5B1820062EF80 /* PartialSheet */,
 				29CAA3C926A046C5004C1315 /* Helper */,
 				29CAA3B9269FE8D3004C1315 /* Model */,
+				29A7CFC426FDD06C00FFCC2B /* Repository */,
 				290274EE26CA92550006EE57 /* View */,
+				29A7CFE626FF576700FFCC2B /* ViewModel */,
 				290274ED26CA92150006EE57 /* ViewComponent */,
 				29CAA3AA269FD973004C1315 /* CiderApp.swift */,
 				29CAA3AE269FD974004C1315 /* Assets.xcassets */,
@@ -223,7 +294,7 @@
 		29CAA3B9269FE8D3004C1315 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				29CAA3BA269FE8F2004C1315 /* SparqlResult.swift */,
+				29CAA3BA269FE8F2004C1315 /* SparqlResponse.swift */,
 				29CAA3BC26A02B79004C1315 /* Lily.swift */,
 				29CAA3C026A02D4B004C1315 /* Legion.swift */,
 				29CC6C8226A1EEBA0062EF80 /* Charm.swift */,
@@ -231,6 +302,7 @@
 				29CC6C8626A1F5E70062EF80 /* Cast.swift */,
 				29CC6C8C26A559E30062EF80 /* Media.swift */,
 				290274AB26C131D70006EE57 /* Corporation.swift */,
+				29A7CFDE26FF392100FFCC2B /* LoadingState.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -273,6 +345,7 @@
 				29CAA3A3269FD973004C1315 /* Sources */,
 				29CAA3A4269FD973004C1315 /* Frameworks */,
 				29CAA3A5269FD973004C1315 /* Resources */,
+				29A7CFD526FDD8F400FFCC2B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -324,6 +397,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29A7CFCA26FDD27200FFCC2B /* Cartfile in Resources */,
 				299556C926A1571E008B426E /* Assets.xcassets in Resources */,
 				29CAA3B2269FD974004C1315 /* Preview Assets.xcassets in Resources */,
 			);
@@ -342,11 +416,12 @@
 				29CC6C8B26A5450B0062EF80 /* DictionaryHelper.swift in Sources */,
 				290274A626C12D840006EE57 /* CharmListView.swift in Sources */,
 				29CC6CA126B2790C0062EF80 /* ViewExtension.swift in Sources */,
+				29A7CFC826FDD08500FFCC2B /* LilyRepository.swift in Sources */,
+				29A7CFDA26FDDE7A00FFCC2B /* LilyNavigationView.swift in Sources */,
 				29CC6D1026BC4EA50062EF80 /* CastListRow.swift in Sources */,
 				296EBFC526D2BBA00085C33D /* ListItemsWrapRow.swift in Sources */,
 				29CC6C9B26AFFC880062EF80 /* LilyDetailViewHeader.swift in Sources */,
 				290274A826C12E910006EE57 /* CharmListView_Extension.swift in Sources */,
-				29CAA3C326A03618004C1315 /* LilyListView_Extension.swift in Sources */,
 				29BBD6F826CEB9D6005F30BA /* CharmUserView.swift in Sources */,
 				29CC6CA326B27A220062EF80 /* LilyListSearchBox.swift in Sources */,
 				290274AA26C131050006EE57 /* DecimalExtension.swift in Sources */,
@@ -359,7 +434,8 @@
 				29CC6CBB26B5B2670062EF80 /* View+IfDeviceType.swift in Sources */,
 				29CAA3CD26A05492004C1315 /* LilyCardView.swift in Sources */,
 				29CC6C9926AFF99C0062EF80 /* RelationshipListRow.swift in Sources */,
-				29CAA3BB269FE8F2004C1315 /* SparqlResult.swift in Sources */,
+				29A7CFC626FDD07A00FFCC2B /* SparqlAPI.swift in Sources */,
+				29CAA3BB269FE8F2004C1315 /* SparqlResponse.swift in Sources */,
 				290274AE26C13BBB0006EE57 /* CharmCardView.swift in Sources */,
 				29CAA3AB269FD973004C1315 /* CiderApp.swift in Sources */,
 				29CAA3C126A02D4B004C1315 /* Legion.swift in Sources */,
@@ -372,11 +448,13 @@
 				29CAA3BF26A02C1A004C1315 /* StringHelper.swift in Sources */,
 				29CC6C9526AFB3080062EF80 /* ListMultiLineRow.swift in Sources */,
 				29CC6CB726B5B1C90062EF80 /* PartialSheetStyle.swift in Sources */,
+				29A7CFE826FF578200FFCC2B /* LilyListViewModel.swift in Sources */,
 				29CC6C9D26B000520062EF80 /* ResponsiveNavigationStyle.swift in Sources */,
 				290274AC26C131D70006EE57 /* Corporation.swift in Sources */,
+				29A7CFD826FDD9EA00FFCC2B /* SparqlConstant.swift in Sources */,
 				29CC6C9F26B277020062EF80 /* GardenPicker.swift in Sources */,
 				29CC6C9126A88E290062EF80 /* DateHelper.swift in Sources */,
-				29567E1626F8F01400CFB7FD /* LilyNavigationView.swift in Sources */,
+				29A7CFDF26FF392100FFCC2B /* LoadingState.swift in Sources */,
 				290274B426C178BB0006EE57 /* CharmDetailViewHeader.swift in Sources */,
 				29567E0C26F372B400CFB7FD /* ListSingleLineNavLinkRow.swift in Sources */,
 				29CC6CAB26B338F30062EF80 /* SkillPicker.swift in Sources */,

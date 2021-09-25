@@ -9,37 +9,70 @@ import SwiftUI
 
 struct LilyListView: View {
     @EnvironmentObject var partialSheetManager: PartialSheetManager
-    @State var searchText: String = ""
-    @State var gardenSelection = "指定なし"
-    @State var showGardenPicker = false
-    @State var legionSelection = "指定なし"
-    @State var showLegionPicker = false
-    @State var skillSelection = "指定なし"
-    @State var showSkillPicker = false
-    @State var lilies: [Lily]
-
+    var gardenSelection = "指定なし"
+    var legionSelection = "指定なし"
+    var skillSelection = "指定なし"
+    @StateObject var lilyListVM = LilyListViewModel()
+    
     var body: some View {
-        List {
-            LilyListSearchBox(searchText: $searchText, gardenSelection: $gardenSelection, legionSelection: $legionSelection, skillSelection: $skillSelection, gardens: gardens, legions: legions, skills: skills)
+        GeometryReader { gr in
+            ZStack {
+                List {
+                    if !self.lilyListVM.lilies.isEmpty {
+                        LilyListSearchBox(lilyListVM: self.lilyListVM)
+                    }
 
-            ForEach(filteredLilies) { lily in
-                NavigationLink(destination: LilyDetailView(resource: lily.resource, lily: nil)) {
-                    LilyCardView(lily: lily)
+                    ForEach(self.lilyListVM.filteredLilies) { lily in
+                        NavigationLink(destination: LilyDetailView(resource: lily.resource, lily: nil)) {
+                            LilyCardView(lily: lily)
+                        }
+                    }
+                }
+                .edgesIgnoringSafeArea(.all)
+                .navigationTitle("リリィ一覧")
+                .navigationBarItems(trailing: Button(action: {
+                    self.lilyListVM.searchText = ""
+                    self.lilyListVM.gardenSelection = "指定なし"
+                    self.lilyListVM.legionSelection = "指定なし"
+                    self.lilyListVM.skillSelection = "指定なし"
+                }) {
+                    Text("絞り込み解除")
+                })
+                .onAppear {
+                    self.lilyListVM.gardenSelection = self.gardenSelection
+                    self.lilyListVM.legionSelection = self.legionSelection
+                    self.lilyListVM.skillSelection = self.skillSelection
+                    self.lilyListVM.loadLilyList()
+                }
+                .addPartialSheet(style: PartialSheetStyle(background: .solid(Color(UIColor.tertiarySystemBackground).opacity(0.0)), accentColor: Color.accentColor.opacity(0.0), enableCover: false, coverColor: Color.gray.opacity(0.0), cornerRadius: 16.0, minTopDistance: 100))
+                
+                switch self.lilyListVM.state {
+                case .loading:
+                    ProgressView("Now Loading...")
+                        .progressViewStyle(CircularProgressViewStyle())
+                case .failure(let msg):
+                    Color(.systemBackground)
+                        .frame(width: gr.size.width, height: gr.size.height)
+                    VStack(alignment: .center) {
+                        Text(msg)
+                        Button(action: {
+                            self.lilyListVM.loadLilyList()
+                        }, label: {
+                            Text("再読み込み")
+                                .padding(.all, 4)
+                                .foregroundColor(.gray)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 4)
+                                        .stroke(lineWidth: 1.0)
+                                        .foregroundColor(.gray))
+                        })
+                        .padding(.vertical)
+                    }
+                    .padding()
+                default:
+                    EmptyView()
                 }
             }
         }
-        .navigationTitle("リリィ一覧")
-        .navigationBarItems(trailing: Button(action: {
-            self.searchText = ""
-            self.gardenSelection = "指定なし"
-            self.legionSelection = "指定なし"
-            self.skillSelection = "指定なし"
-        }) {
-            Text("絞り込み解除")
-        })
-        .edgesIgnoringSafeArea(.all)
-        .onAppear { self.loadLilyList() }
-        
-        .addPartialSheet(style: PartialSheetStyle(background: .solid(Color(UIColor.tertiarySystemBackground).opacity(0.0)), accentColor: Color.accentColor.opacity(0.0), enableCover: false, coverColor: Color.gray.opacity(0.0), cornerRadius: 16.0, minTopDistance: 100))
     }
 }

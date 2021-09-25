@@ -9,9 +9,9 @@ import Foundation
 
 struct DictionaryHelper {
     public static func initDict(data: Data) -> Dictionary<String, [Triple]> {
-        var result: SparqlResult?
+        var result: SparqlResponse?
         do {
-            result = try JSONDecoder().decode(SparqlResult.self, from: data)
+            result = try JSONDecoder().decode(SparqlResponse.self, from: data)
         } catch {
             fatalError("JSON parse error")
         }

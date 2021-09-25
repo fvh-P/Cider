@@ -16,7 +16,7 @@ struct LilyDetailView: View {
             Section(header: LilyDetailViewHeader(lily: lily)) {}
             Section(header: Text("ガーデン・レギオン情報")) {
                 if let garden = lily?.garden {
-                    ListSingleLineNavLinkRow(title: "所属ガーデン", value: garden, destination: AnyView(LilyListView(gardenSelection: garden, lilies: [])))
+                    ListSingleLineNavLinkRow(title: "所属ガーデン", value: garden, destination: AnyView(LilyListView(gardenSelection: garden)))
                 } else {
                     ListSingleLineRow(title: "所属ガーデン", value: nil)
                 }
@@ -46,7 +46,7 @@ struct LilyDetailView: View {
                             + (lily?.legion?.alternateName != nil
                                 ? " (\((lily?.legion?.alternateName)!))"
                                 : "") {
-                    ListSingleLineNavLinkRow(title: "所属レギオン", value: legionText, destination: AnyView(LilyListView(legionSelection: lily?.legion?.name ?? "指定なし", lilies: [])))
+                    ListSingleLineNavLinkRow(title: "所属レギオン", value: legionText, destination: AnyView(LilyListView(legionSelection: lily?.legion?.name ?? "指定なし")))
                 } else {
                     ListSingleLineRow(title: "所属レギオン", value: nil)
                 }
@@ -72,7 +72,7 @@ struct LilyDetailView: View {
             }
             Section(header: Text("スキル・CHARM情報")) {
                 if let rareSkill = lily?.rareSkill {
-                    NavigationLink(destination: LilyListView(skillSelection: rareSkill, lilies: [])) {
+                    NavigationLink(destination: LilyListView(skillSelection: rareSkill)) {
                         HStack {
                             Text("レアスキル")
                             Spacer()
@@ -88,7 +88,7 @@ struct LilyDetailView: View {
                 }
                 
                 ListMultiLineRow(title: "サブスキル", values: lily?.subSkill) { skill in
-                    NavigationLink(destination: LilyListView(skillSelection: skill, lilies: [])) {
+                    NavigationLink(destination: LilyListView(skillSelection: skill)) {
                         HStack {
                             Spacer()
                             Text(skill)
@@ -101,7 +101,7 @@ struct LilyDetailView: View {
                 
                 if lily?.isBoosted == true {
                     ListMultiLineRow(title: "ブーステッドスキル", values: lily?.boostedSkill) { skill in
-                        NavigationLink(destination: LilyListView(skillSelection: skill, lilies: [])) {
+                        NavigationLink(destination: LilyListView(skillSelection: skill)) {
                             HStack {
                                 Spacer()
                                 Text(skill)

@@ -18,6 +18,11 @@ default_platform(:ios)
 platform :ios do
   desc "Push a new beta build to TestFlight"
 
+  before_all do
+    # https://docs.fastlane.tools/actions/carthage/
+    carthage(platform: "iOS", use_netrc: false, cache_builds: true, use_binaries: false, use_xcframeworks: true)
+  end
+  
   lane :certificate_adhoc do
     setup_ci
 

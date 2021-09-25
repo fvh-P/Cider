@@ -5,16 +5,16 @@
 //  Created by ふぁぼ原 on 2021/07/15.
 //
 
-struct SparqlResult: Codable {
+struct SparqlResponse: Codable {
     var head: Head
-    var results: Result
+    var results: SparqlResult
 }
 
 struct Head: Codable {
     var vars: [String]
 }
 
-struct Result: Codable {
+struct SparqlResult: Codable {
     var bindings: [Triple]
 }
 
