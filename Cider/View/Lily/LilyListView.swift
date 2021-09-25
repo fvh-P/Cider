@@ -21,7 +21,7 @@ struct LilyListView: View {
                     LilyListSearchBox(lilyListVM: self.lilyListVM)
 
                     ForEach(self.lilyListVM.filteredLilies) { lily in
-                        NavigationLink(destination: LilyDetailView(resource: lily.resource, lily: nil)) {
+                        NavigationLink(destination: LilyDetailView(resource: lily.resource)) {
                             LilyCardView(lily: lily)
                         }
                     }
@@ -29,10 +29,7 @@ struct LilyListView: View {
                 .edgesIgnoringSafeArea(.all)
                 .navigationTitle("リリィ一覧")
                 .navigationBarItems(trailing: Button(action: {
-                    self.lilyListVM.searchText = ""
-                    self.lilyListVM.gardenSelection = "指定なし"
-                    self.lilyListVM.legionSelection = "指定なし"
-                    self.lilyListVM.skillSelection = "指定なし"
+                    self.lilyListVM.resetSelections()
                 }) {
                     Text("絞り込み解除")
                 })

@@ -30,6 +30,10 @@
 		29A7CFDD26FDDEA700FFCC2B /* Alamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 29A7CFDB26FDDEA700FFCC2B /* Alamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		29A7CFDF26FF392100FFCC2B /* LoadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A7CFDE26FF392100FFCC2B /* LoadingState.swift */; };
 		29A7CFE826FF578200FFCC2B /* LilyListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A7CFE726FF578200FFCC2B /* LilyListViewModel.swift */; };
+		29A7CFEA26FF9DC900FFCC2B /* LilyDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A7CFE926FF9DC900FFCC2B /* LilyDetailViewModel.swift */; };
+		29A7CFEC26FF9FE400FFCC2B /* LilyDetailGardenLegionInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A7CFEB26FF9FE400FFCC2B /* LilyDetailGardenLegionInfoView.swift */; };
+		29A7CFEE26FFA17B00FFCC2B /* LilyDetailBasicInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A7CFED26FFA17B00FFCC2B /* LilyDetailBasicInfoView.swift */; };
+		29A7CFF026FFA22B00FFCC2B /* LilyDetailSkillCharmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A7CFEF26FFA22B00FFCC2B /* LilyDetailSkillCharmView.swift */; };
 		29BBD6F826CEB9D6005F30BA /* CharmUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BBD6F726CEB9D6005F30BA /* CharmUserView.swift */; };
 		29CAA3AB269FD973004C1315 /* CiderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CAA3AA269FD973004C1315 /* CiderApp.swift */; };
 		29CAA3AD269FD973004C1315 /* LilyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CAA3AC269FD973004C1315 /* LilyListView.swift */; };
@@ -44,7 +48,6 @@
 		29CC6C8326A1EEBA0062EF80 /* Charm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CC6C8226A1EEBA0062EF80 /* Charm.swift */; };
 		29CC6C8526A1F5C90062EF80 /* Taskforce.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CC6C8426A1F5C90062EF80 /* Taskforce.swift */; };
 		29CC6C8726A1F5E70062EF80 /* Cast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CC6C8626A1F5E70062EF80 /* Cast.swift */; };
-		29CC6C8926A510720062EF80 /* LilyDetailView_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CC6C8826A510720062EF80 /* LilyDetailView_Extension.swift */; };
 		29CC6C8B26A5450B0062EF80 /* DictionaryHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CC6C8A26A5450B0062EF80 /* DictionaryHelper.swift */; };
 		29CC6C8D26A559E30062EF80 /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CC6C8C26A559E30062EF80 /* Media.swift */; };
 		29CC6C8F26A6C5FC0062EF80 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CC6C8E26A6C5FC0062EF80 /* ColorExtension.swift */; };
@@ -104,6 +107,10 @@
 		29A7CFDB26FDDEA700FFCC2B /* Alamofire.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Alamofire.xcframework; path = Carthage/Build/Alamofire.xcframework; sourceTree = "<group>"; };
 		29A7CFDE26FF392100FFCC2B /* LoadingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingState.swift; sourceTree = "<group>"; };
 		29A7CFE726FF578200FFCC2B /* LilyListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LilyListViewModel.swift; sourceTree = "<group>"; };
+		29A7CFE926FF9DC900FFCC2B /* LilyDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LilyDetailViewModel.swift; sourceTree = "<group>"; };
+		29A7CFEB26FF9FE400FFCC2B /* LilyDetailGardenLegionInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LilyDetailGardenLegionInfoView.swift; sourceTree = "<group>"; };
+		29A7CFED26FFA17B00FFCC2B /* LilyDetailBasicInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LilyDetailBasicInfoView.swift; sourceTree = "<group>"; };
+		29A7CFEF26FFA22B00FFCC2B /* LilyDetailSkillCharmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LilyDetailSkillCharmView.swift; sourceTree = "<group>"; };
 		29BBD6F726CEB9D6005F30BA /* CharmUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharmUserView.swift; sourceTree = "<group>"; };
 		29CAA3A7269FD973004C1315 /* Cider.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cider.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29CAA3AA269FD973004C1315 /* CiderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CiderApp.swift; sourceTree = "<group>"; };
@@ -121,7 +128,6 @@
 		29CC6C8226A1EEBA0062EF80 /* Charm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Charm.swift; sourceTree = "<group>"; };
 		29CC6C8426A1F5C90062EF80 /* Taskforce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Taskforce.swift; sourceTree = "<group>"; };
 		29CC6C8626A1F5E70062EF80 /* Cast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cast.swift; sourceTree = "<group>"; };
-		29CC6C8826A510720062EF80 /* LilyDetailView_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LilyDetailView_Extension.swift; sourceTree = "<group>"; };
 		29CC6C8A26A5450B0062EF80 /* DictionaryHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryHelper.swift; sourceTree = "<group>"; };
 		29CC6C8C26A559E30062EF80 /* Media.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
 		29CC6C8E26A6C5FC0062EF80 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
@@ -188,12 +194,14 @@
 		290274EF26CA92840006EE57 /* Lily */ = {
 			isa = PBXGroup;
 			children = (
+				29A7CFD926FDDE7A00FFCC2B /* LilyNavigationView.swift */,
 				29CAA3AC269FD973004C1315 /* LilyListView.swift */,
 				29CAA3CC26A05492004C1315 /* LilyCardView.swift */,
 				29CC6C8026A1E2400062EF80 /* LilyDetailView.swift */,
 				29CC6C9A26AFFC880062EF80 /* LilyDetailViewHeader.swift */,
-				29CC6C8826A510720062EF80 /* LilyDetailView_Extension.swift */,
-				29A7CFD926FDDE7A00FFCC2B /* LilyNavigationView.swift */,
+				29A7CFEB26FF9FE400FFCC2B /* LilyDetailGardenLegionInfoView.swift */,
+				29A7CFED26FFA17B00FFCC2B /* LilyDetailBasicInfoView.swift */,
+				29A7CFEF26FFA22B00FFCC2B /* LilyDetailSkillCharmView.swift */,
 			);
 			path = Lily;
 			sourceTree = "<group>";
@@ -242,6 +250,7 @@
 			isa = PBXGroup;
 			children = (
 				29A7CFE726FF578200FFCC2B /* LilyListViewModel.swift */,
+				29A7CFE926FF9DC900FFCC2B /* LilyDetailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -421,6 +430,7 @@
 				29CC6D1026BC4EA50062EF80 /* CastListRow.swift in Sources */,
 				296EBFC526D2BBA00085C33D /* ListItemsWrapRow.swift in Sources */,
 				29CC6C9B26AFFC880062EF80 /* LilyDetailViewHeader.swift in Sources */,
+				29A7CFEC26FF9FE400FFCC2B /* LilyDetailGardenLegionInfoView.swift in Sources */,
 				290274A826C12E910006EE57 /* CharmListView_Extension.swift in Sources */,
 				29BBD6F826CEB9D6005F30BA /* CharmUserView.swift in Sources */,
 				29CC6CA326B27A220062EF80 /* LilyListSearchBox.swift in Sources */,
@@ -437,11 +447,11 @@
 				29A7CFC626FDD07A00FFCC2B /* SparqlAPI.swift in Sources */,
 				29CAA3BB269FE8F2004C1315 /* SparqlResponse.swift in Sources */,
 				290274AE26C13BBB0006EE57 /* CharmCardView.swift in Sources */,
+				29A7CFEA26FF9DC900FFCC2B /* LilyDetailViewModel.swift in Sources */,
 				29CAA3AB269FD973004C1315 /* CiderApp.swift in Sources */,
 				29CAA3C126A02D4B004C1315 /* Legion.swift in Sources */,
 				290274B626C192180006EE57 /* CharmListSearchBox.swift in Sources */,
 				290274B226C177490006EE57 /* CharmDetailView_Extension.swift in Sources */,
-				29CC6C8926A510720062EF80 /* LilyDetailView_Extension.swift in Sources */,
 				29CC6CA526B27CF80062EF80 /* LegionPicker.swift in Sources */,
 				29CC6C8326A1EEBA0062EF80 /* Charm.swift in Sources */,
 				29CC6CBD26B5B27F0062EF80 /* View+PartialSheetModifier.swift in Sources */,
@@ -451,6 +461,7 @@
 				29A7CFE826FF578200FFCC2B /* LilyListViewModel.swift in Sources */,
 				29CC6C9D26B000520062EF80 /* ResponsiveNavigationStyle.swift in Sources */,
 				290274AC26C131D70006EE57 /* Corporation.swift in Sources */,
+				29A7CFEE26FFA17B00FFCC2B /* LilyDetailBasicInfoView.swift in Sources */,
 				29A7CFD826FDD9EA00FFCC2B /* SparqlConstant.swift in Sources */,
 				29CC6C9F26B277020062EF80 /* GardenPicker.swift in Sources */,
 				29CC6C9126A88E290062EF80 /* DateHelper.swift in Sources */,
@@ -458,6 +469,7 @@
 				290274B426C178BB0006EE57 /* CharmDetailViewHeader.swift in Sources */,
 				29567E0C26F372B400CFB7FD /* ListSingleLineNavLinkRow.swift in Sources */,
 				29CC6CAB26B338F30062EF80 /* SkillPicker.swift in Sources */,
+				29A7CFF026FFA22B00FFCC2B /* LilyDetailSkillCharmView.swift in Sources */,
 				29CAA3BD26A02B79004C1315 /* Lily.swift in Sources */,
 				29CC6CA726B283F10062EF80 /* UIApplicationExtension.swift in Sources */,
 				29CC6C8126A1E2400062EF80 /* LilyDetailView.swift in Sources */,

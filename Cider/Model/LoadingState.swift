@@ -2,7 +2,7 @@
 //  LoadingState.swift
 //  Cider
 //
-//  Created by kokuriha on 2021/09/25.
+//  Created by ふぁぼ原 on 2021/09/25.
 //
 
 enum LoadingState: Equatable {

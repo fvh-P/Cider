@@ -50,6 +50,13 @@ class LilyListViewModel: LilyRepositoryInjectable, ObservableObject {
         }
     }
     
+    func resetSelections() {
+        self.searchText = ""
+        self.gardenSelection = "指定なし"
+        self.legionSelection = "指定なし"
+        self.skillSelection = "指定なし"
+    }
+    
     var filteredLilies: [Lily] {
         print("aaa")
         var filtered = lilies

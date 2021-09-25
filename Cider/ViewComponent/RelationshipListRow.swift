@@ -10,7 +10,7 @@ import SwiftUI
 struct RelationshipListRow: View {
     var relation: Relationship
     var body: some View {
-        NavigationLink(destination: LilyDetailView(resource: relation.value.resource, lily: nil)) {
+        NavigationLink(destination: LilyDetailView(resource: relation.value.resource)) {
             HStack {
                 VStack(alignment: .leading) {
                     ForEach(relation.relation, id:\.self) { r in
