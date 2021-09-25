@@ -11,18 +11,11 @@ typealias LilyListResult = Result<[Lily], SparqlError>
 typealias LilyDetailResult = Result<Lily, SparqlError>
 
 enum SparqlError: Error {
-    case badRequest(detail: String)
-    case endpointNotFound(detail: String)
-    case serviceTemporarilyUnavailable(detail: String)
-    case badGateway(detail: String)
+    case badRequest
+    case endpointNotFound
+    case serviceTemporarilyUnavailable
+    case badGateway
     case other(detail: String)
-    
-    var detail: String {
-        switch self {
-        case .badRequest(detail: let detail), .endpointNotFound(detail: let detail), .serviceTemporarilyUnavailable(detail: let detail), .badGateway(detail: let detail), .other(detail: let detail):
-            return detail
-        }
-    }
 }
 
 protocol LilyRepository {
@@ -48,18 +41,18 @@ fileprivate class LilyRepositoryImpl: LilyRepository {
             let lilyListResult: LilyListResult = ({
                 switch result {
                 case .success(let response):
-                    guard let response = try? response.filterSuccessfulStatusCodes() else {
+                    guard let _ = try? response.filterSuccessfulStatusCodes() else {
                         let message = (try? response.mapString()) ?? "No message"
                         let detail = "\(response.statusCode), \(message)"
                         switch response.statusCode {
                         case 400:
-                            return .failure(.badRequest(detail: detail))
+                            return .failure(.badRequest)
                         case 404:
-                            return .failure(.endpointNotFound(detail: detail))
+                            return .failure(.endpointNotFound)
                         case 502:
-                            return .failure(.badGateway(detail: detail))
+                            return .failure(.badGateway)
                         case 503:
-                            return .failure(.serviceTemporarilyUnavailable(detail: detail))
+                            return .failure(.serviceTemporarilyUnavailable)
                         default:
                             break
                         }

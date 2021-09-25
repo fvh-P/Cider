@@ -19,19 +19,30 @@ class LilyListViewModel: LilyRepositoryInjectable, ObservableObject {
     @Published var showSkillPicker = false
     
     func loadLilyList() -> Void {
-        self.state = .loading
+        if self.lilies.isEmpty {
+            self.state = .loading
+        }
         self.lilyRepository.getLilyList() { result in
             switch result {
-            case .failure(.endpointNotFound(let msg)),
-                .failure(.badRequest(let msg)),
-                .failure(.badGateway(let msg)),
-                .failure(.serviceTemporarilyUnavailable(let msg)),
-                .failure(.other(let msg)):
+            case .failure(let reason):
                 if self.lilies.isEmpty {
-                    self.state = .failure(msg: msg)
+                    switch reason {
+                    case .endpointNotFound:
+                        self.state = .failure(msg: "404: SPARQL APIにアクセスできません。開発者までお問い合わせください。")
+                    case .badRequest:
+                        self.state = .failure(msg: "400: SPARQLのクエリが不正です。開発者までお問い合わせください。")
+                    case .badGateway:
+                        self.state = .failure(msg: "502: SPARQL APIが正しく応答しません。メンテナンス中または障害が発生しています。数分待って再度お試しください。")
+                    case .serviceTemporarilyUnavailable:
+                        self.state = .failure(msg: "503: SPARQL APIが正しく応答しません。メンテナンス中または障害が発生しています。数分待って再度お試しください。")
+                    case .other(let msg):
+                        self.state = .failure(msg: msg)
+                    }
+                    
                 } else {
                     self.state = .success
                 }
+                
             case .success(let lilies):
                 self.state = .success
                 self.lilies = lilies

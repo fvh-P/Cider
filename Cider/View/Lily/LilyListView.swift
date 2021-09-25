@@ -18,9 +18,7 @@ struct LilyListView: View {
         GeometryReader { gr in
             ZStack {
                 List {
-                    if !self.lilyListVM.lilies.isEmpty {
-                        LilyListSearchBox(lilyListVM: self.lilyListVM)
-                    }
+                    LilyListSearchBox(lilyListVM: self.lilyListVM)
 
                     ForEach(self.lilyListVM.filteredLilies) { lily in
                         NavigationLink(destination: LilyDetailView(resource: lily.resource, lily: nil)) {
@@ -48,6 +46,8 @@ struct LilyListView: View {
                 
                 switch self.lilyListVM.state {
                 case .loading:
+                    Color(.systemBackground)
+                        .frame(width: gr.size.width, height: gr.size.height)
                     ProgressView("Now Loading...")
                         .progressViewStyle(CircularProgressViewStyle())
                 case .failure(let msg):
