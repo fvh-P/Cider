@@ -8,11 +8,11 @@ on:
 
 jobs:
   build:
-    runs-on: macos-latest
+    runs-on: macos-11
     steps:
     - uses: actions/checkout@v1
     - name: Select Xcode
-      run: sudo xcode-select -s '/Applications/Xcode_12.4.app/Contents/Developer'
+      run: sudo xcode-select -s '/Applications/Xcode_12.5.app/Contents/Developer'
     - uses: actions/cache@v2
       with:
         path: Carthage
