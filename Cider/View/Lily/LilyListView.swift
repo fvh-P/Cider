@@ -15,60 +15,53 @@ struct LilyListView: View {
     @StateObject var lilyListVM = LilyListViewModel()
     
     var body: some View {
-        GeometryReader { gr in
-            ZStack {
-                List {
-                    LilyListSearchBox(lilyListVM: self.lilyListVM)
-
-                    ForEach(self.lilyListVM.filteredLilies) { lily in
-                        NavigationLink(destination: LilyDetailView(resource: lily.resource)) {
-                            LilyCardView(lily: lily)
-                        }
-                    }
-                }
-                .edgesIgnoringSafeArea(.all)
-                .navigationTitle("リリィ一覧")
-                .navigationBarItems(trailing: Button(action: {
-                    self.lilyListVM.resetSelections()
-                }) {
-                    Text("絞り込み解除")
-                })
-                .onAppear {
-                    self.lilyListVM.gardenSelection = self.gardenSelection
-                    self.lilyListVM.legionSelection = self.legionSelection
-                    self.lilyListVM.skillSelection = self.skillSelection
-                    self.lilyListVM.loadLilyList()
-                }
-                .addPartialSheet(style: PartialSheetStyle(background: .solid(Color(UIColor.tertiarySystemBackground).opacity(0.0)), accentColor: Color.accentColor.opacity(0.0), enableCover: false, coverColor: Color.gray.opacity(0.0), cornerRadius: 16.0, minTopDistance: 100))
+        ZStack{
+            List {
+                LilyListSearchBox(lilyListVM: self.lilyListVM)
                 
-                switch self.lilyListVM.state {
-                case .loading:
-                    Color(.systemBackground)
-                        .frame(width: gr.size.width, height: gr.size.height)
-                    ProgressView("Now Loading...")
-                        .progressViewStyle(CircularProgressViewStyle())
-                case .failure(let msg):
-                    Color(.systemBackground)
-                        .frame(width: gr.size.width, height: gr.size.height)
-                    VStack(alignment: .center) {
-                        Text(msg)
-                        Button(action: {
-                            self.lilyListVM.loadLilyList()
-                        }, label: {
-                            Text("再読み込み")
-                                .padding(.all, 4)
-                                .foregroundColor(.gray)
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 4)
-                                        .stroke(lineWidth: 1.0)
-                                        .foregroundColor(.gray))
-                        })
-                        .padding(.vertical)
+                ForEach(self.lilyListVM.filteredLilies) { lily in
+                    NavigationLink(destination: LilyDetailView(resource: lily.resource)) {
+                        LilyCardView(lily: lily)
                     }
-                    .padding()
-                default:
-                    EmptyView()
                 }
+            }
+            .edgesIgnoringSafeArea(.all)
+            .navigationTitle("リリィ一覧")
+            .navigationBarItems(trailing: Button(action: {
+                self.lilyListVM.resetSelections()
+            }) {
+                Text("絞り込み解除")
+            })
+            .onAppear {
+                self.lilyListVM.gardenSelection = self.gardenSelection
+                self.lilyListVM.legionSelection = self.legionSelection
+                self.lilyListVM.skillSelection = self.skillSelection
+                self.lilyListVM.loadLilyList()
+            }
+            if case .loading = self.lilyListVM.state {
+                Color(.systemBackground)
+                ProgressView("Now Loading...")
+                    .progressViewStyle(CircularProgressViewStyle())
+            } else if case .failure(let msg) = self.lilyListVM.state {
+                Color(.systemBackground)
+                VStack(alignment: .center) {
+                    Spacer()
+                    Text(msg)
+                    Button(action: {
+                        self.lilyListVM.loadLilyList()
+                    }, label: {
+                        Text("再読み込み")
+                            .padding(.all, 4)
+                            .foregroundColor(.gray)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 4)
+                                    .stroke(lineWidth: 1.0)
+                                    .foregroundColor(.gray))
+                    })
+                    .padding(.vertical)
+                    Spacer()
+                }
+                .padding()
             }
         }
     }
