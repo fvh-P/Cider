@@ -39,7 +39,7 @@ platform :ios do
     increment_build_number
 
     build_app(
-      scheme: "Cider",
+      scheme: "Cider AdHoc",
       output_directory: "./",
       export_options: {
         method: "ad-hoc",
