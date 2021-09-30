@@ -1,38 +1,38 @@
 //
-//  LilyRepository.swift
+//  CharmRepository.swift
 //  Cider
 //
-//  Created by ふぁぼ原 on 2021/09/24.
+//  Created by ふぁぼ原 on 2021/09/30.
 //
 
 import Moya
 import Foundation
 
-typealias LilyListResult = Result<[Lily], SparqlError>
-typealias LilyDetailResult = Result<Lily, SparqlError>
+typealias CharmListResult = Result<[Charm], SparqlError>
+typealias CharmDetailResult = Result<Charm, SparqlError>
 
-protocol LilyRepository {
-    func getLilyList(completion: @escaping (LilyListResult) -> Void)
-    func getLilyDetail(resource: String, completion: @escaping (LilyDetailResult) -> Void)
+protocol CharmRepository {
+    func getCharmList(completion: @escaping (CharmListResult) -> Void)
+    func getCharmDetail(resource: String, completion: @escaping (CharmDetailResult) -> Void)
 }
 
-protocol LilyRepositoryInjectable {
-    var lilyRepository: LilyRepository { get }
+protocol CharmRepositoryInjectable {
+    var charmRepository: CharmRepository { get }
 }
 
-extension LilyRepositoryInjectable {
-    var lilyRepository: LilyRepository {
-        return LilyRepositoryImpl.shared
+extension CharmRepositoryInjectable {
+    var charmRepository: CharmRepository {
+        return CharmRepositoryImpl.shared
     }
 }
 
-fileprivate class LilyRepositoryImpl: LilyRepository {
+fileprivate class CharmRepositoryImpl: CharmRepository {
     private init() {}
-    static let shared = LilyRepositoryImpl()
+    static let shared = CharmRepositoryImpl()
     
-    func getLilyList(completion: @escaping (LilyListResult) -> Void) {
-        MoyaProvider<SparqlAPI>().request(.lilyList) { result in
-            let lilyListResult: LilyListResult = ({
+    func getCharmList(completion: @escaping (CharmListResult) -> Void) {
+        MoyaProvider<SparqlAPI>().request(.charmList) { result in
+            let charmListResult: CharmListResult = ({
                 switch result {
                 case .success(let response):
                     guard let _ = try? response.filterSuccessfulStatusCodes() else {
@@ -60,27 +60,27 @@ fileprivate class LilyRepositoryImpl: LilyRepository {
                     let dict = Dictionary.init(grouping: (sparqlResponse.results.bindings), by: { (elem) -> String in
                         return elem.subject.value
                     })
-                    let dict_legions = dict.filter({(key, triples) -> Bool in
+                    let dict_corporations = dict.filter({(key, triples) -> Bool in
                         triples.contains(where: {triple -> Bool in
-                            triple.object.value == "https://lily.fvhp.net/rdf/IRIs/lily_schema.ttl#Legion"
+                            triple.object.value == "https://lily.fvhp.net/rdf/IRIs/lily_schema.ttl#Corporation"
                         })
                     })
-                    let legions = Legion.convert(from: dict_legions)
+                    let corporations = Corporation.convert(from: dict_corporations)
                     
-                    let dict_lilies = dict.filter({(key, triples) -> Bool in
+                    let dict_charms = dict.filter({(key, triples) -> Bool in
                         triples.contains(where: {triple -> Bool in
-                            triple.object.value == "https://lily.fvhp.net/rdf/IRIs/lily_schema.ttl#Lily"
+                            triple.object.value == "https://lily.fvhp.net/rdf/IRIs/lily_schema.ttl#Charm"
                         })
                     })
-                    return .success(Lily.convertForListView(from: dict_lilies, legions: legions).sorted {
-                        if $0.nameKana == nil {
+                    return .success(Charm.convertForListView(from: dict_charms, corporations: corporations).sorted {
+                        if $0.nameEn == nil {
                             return false
                         }
-                        else if $1.nameKana == nil {
+                        else if $1.nameEn == nil {
                             return true
                         }
                         else {
-                            return $0.nameKana! < $1.nameKana!
+                            return $0.nameEn! < $1.nameEn!
                         }
                     })
                 case .failure(let error):
@@ -88,15 +88,15 @@ fileprivate class LilyRepositoryImpl: LilyRepository {
                 }
             })()
             
-            completion(lilyListResult)
+            completion(charmListResult)
         }
     }
     
-    func getLilyDetail(resource: String, completion: @escaping (LilyDetailResult) -> Void) {
+    func getCharmDetail(resource: String, completion: @escaping (CharmDetailResult) -> Void) {
         
         let slug = URL(string: resource)!.lastPathComponent
-        MoyaProvider<SparqlAPI>().request(.lilyDetail(slug: slug)) { result in
-            let lilyDetailResult: LilyDetailResult = ({
+        MoyaProvider<SparqlAPI>().request(.charmDetail(slug: slug)) { result in
+            let charmDetailResult: CharmDetailResult = ({
                 switch result {
                 case .success(let response):
                     guard let _ = try? response.filterSuccessfulStatusCodes() else {
@@ -121,6 +121,7 @@ fileprivate class LilyRepositoryImpl: LilyRepository {
                     guard let sparqlResponse = try? response.map(SparqlResponse.self) else {
                         return .failure(.other(detail: "SPARQL API response mapping error"))
                     }
+                    
                     let dict = Dictionary.init(grouping: (sparqlResponse.results.bindings), by: { (elem) -> String in
                         return elem.subject.value
                     })
@@ -130,7 +131,7 @@ fileprivate class LilyRepositoryImpl: LilyRepository {
                         })
                     })
                     let charms = Charm.convertForOutline(from: dict_charms)
-                    let dict_relations = dict.filter({(key, triples) -> Bool in
+                    let dict_lilies = dict.filter({(key, triples) -> Bool in
                         triples.contains(where: {triple -> Bool in
                             (triple.object.value == "https://lily.fvhp.net/rdf/IRIs/lily_schema.ttl#Lily"
                                 || triple.object.value == "https://lily.fvhp.net/rdf/IRIs/lily_schema.ttl#Teacher"
@@ -138,40 +139,30 @@ fileprivate class LilyRepositoryImpl: LilyRepository {
                                 && URL(string: triple.subject.value)?.lastPathComponent != slug
                         })
                     })
-                    let relations = Lily.convertForRelations(from: dict_relations)
                     
-                    let dict_legions = dict.filter({(key, triples) -> Bool in
-                        triples.contains(where: {triple -> Bool in
-                            triple.object.value == "https://lily.fvhp.net/rdf/IRIs/lily_schema.ttl#Legion"
-                        })
-                    })
-                    let legions = Legion.convert(from: dict_legions)
-                    
-                    let dict_media = dict.filter({(key, triples) -> Bool in
-                        triples.contains(where: {triple -> Bool in
-                            triple.object.value == "https://lily.fvhp.net/rdf/IRIs/lily_schema.ttl#Play"
-                                || triple.object.value == "https://lily.fvhp.net/rdf/IRIs/lily_schema.ttl#Game"
-                                || triple.object.value == "https://lily.fvhp.net/rdf/IRIs/lily_schema.ttl#AnimeSeries"
-                                || triple.object.value == "https://lily.fvhp.net/rdf/IRIs/lily_schema.ttl#Book"
-                        })
-                    })
-                    let media = Media.convert(from: dict_media)
-                    
-                    let lily_triples = dict[resource]!
-
                     let bnodes = dict.filter({(key, triples) -> Bool in
                         triples.contains(where: {triple -> Bool in
                             triple.subject.type == "bnode"
                         })
                     })
-                    return .success(Lily.convertForDetailView(from: slug, triples: lily_triples, bnodes: bnodes, charms: charms, legions: legions, relations: relations, media: media))
+                    let lilies = Lily.convertForCharmUser(from: dict_lilies, bnodes: bnodes)
+                    let dict_corporations = dict.filter({(key, triples) -> Bool in
+                        triples.contains(where: {triple -> Bool in
+                            triple.object.value == "https://lily.fvhp.net/rdf/IRIs/lily_schema.ttl#Corporation"
+                        })
+                    })
+                    let corporations = Corporation.convert(from: dict_corporations)
+                    let charm_triples = dict[resource]!
+                    
+                    return .success(Charm.convertForDetailView(from: resource, triples: charm_triples, charms: charms, lilies: lilies, corporations: corporations))
                     
                 case .failure(let error):
                     return .failure(.other(detail: error.localizedDescription))
                 }
             })()
             
-            completion(lilyDetailResult)
+            completion(charmDetailResult)
         }
     }
 }
+

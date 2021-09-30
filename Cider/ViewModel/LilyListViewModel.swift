@@ -58,7 +58,6 @@ class LilyListViewModel: LilyRepositoryInjectable, ObservableObject {
     }
     
     var filteredLilies: [Lily] {
-        print("aaa")
         var filtered = lilies
         if !self.searchText.isEmpty {
             filtered = filtered.filter({

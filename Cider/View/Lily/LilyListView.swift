@@ -38,30 +38,9 @@ struct LilyListView: View {
                 self.lilyListVM.skillSelection = self.skillSelection
                 self.lilyListVM.loadLilyList()
             }
-            if case .loading = self.lilyListVM.state {
-                Color(.systemBackground)
-                ProgressView("Now Loading...")
-                    .progressViewStyle(CircularProgressViewStyle())
-            } else if case .failure(let msg) = self.lilyListVM.state {
-                Color(.systemBackground)
-                VStack(alignment: .center) {
-                    Spacer()
-                    Text(msg)
-                    Button(action: {
-                        self.lilyListVM.loadLilyList()
-                    }, label: {
-                        Text("再読み込み")
-                            .padding(.all, 4)
-                            .foregroundColor(.gray)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 4)
-                                    .stroke(lineWidth: 1.0)
-                                    .foregroundColor(.gray))
-                    })
-                    .padding(.vertical)
-                    Spacer()
-                }
-                .padding()
+            
+            LoadingView(state: self.$lilyListVM.state) {
+                self.lilyListVM.loadLilyList()
             }
         }
     }

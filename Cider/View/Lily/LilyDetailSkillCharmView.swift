@@ -57,7 +57,7 @@ struct LilyDetailSkillCharmView: View {
         if lily.charm.count > 0 {
             DisclosureGroup(isExpanded: $charmExpanded) {
                 ForEach(lily.charm) { lilyCharm in
-                    NavigationLink(destination: CharmDetailView(resource: lilyCharm.charm.resource, charm: nil)) {
+                    NavigationLink(destination: CharmDetailView(resource: lilyCharm.charm.resource)) {
                         Text(self.charmText(lilyCharm: lilyCharm))
                             .frame(alignment: .trailing)
                     }

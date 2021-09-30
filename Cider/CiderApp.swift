@@ -17,7 +17,7 @@ struct CiderApp: App {
                     .environmentObject(sheetManager)
                     .onAppear(perform: UIApplication.shared.addTapGestureRecognizer)
                     .tabItem { Label("リリィ一覧", systemImage: "person.crop.rectangle.fill") }
-                CharmListView(charms: [])
+                CharmListView()
                     .environmentObject(sheetManager)
                     .onAppear(perform: UIApplication.shared.addTapGestureRecognizer)
                     .tabItem { Label("CHARM一覧", systemImage: "wand.and.stars") }

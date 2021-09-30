@@ -8,28 +8,33 @@
 import SwiftUI
 
 struct CharmListView: View {
-    @State var searchText: String = ""
-    @State var charms: [Charm]
+    @StateObject var charmListVM = CharmListViewModel()
     var body: some View {
         NavigationView {
-            List {
-                CharmListSearchBox(searchText: $searchText, searchExpanded: false)
-                ForEach(filteredCharms) { charm in
-                    NavigationLink(destination: CharmDetailView(resource: charm.resource, charm: nil)) {
-                        CharmCardView(charm: charm)
+            ZStack {
+                List {
+                    CharmListSearchBox(searchText: self.$charmListVM.searchText, searchExpanded: false)
+                    ForEach(self.charmListVM.filteredCharms) { charm in
+                        NavigationLink(destination: CharmDetailView(resource: charm.resource)) {
+                            CharmCardView(charm: charm)
+                        }
                     }
                 }
+                .navigationTitle("CHARM一覧")
+                .navigationBarItems(trailing: Button(action: {
+                    self.charmListVM.searchText = ""
+                }) {
+                    Text("絞り込み解除")
+                })
+                .edgesIgnoringSafeArea(.all)
+                
+                LoadingView(state: self.$charmListVM.state) {
+                    self.charmListVM.loadCharmList()
+                }
             }
-            .navigationTitle("CHARM一覧")
-            .navigationBarItems(trailing: Button(action: {
-                self.searchText = ""
-            }) {
-                Text("絞り込み解除")
-            })
-            .edgesIgnoringSafeArea(.all)
         }
         .modifier(ResponsiveNavigationStyle())
-        .onAppear { self.loadCharmList() }
+        .onAppear { self.charmListVM.loadCharmList() }
         .addPartialSheet(style: PartialSheetStyle(background: .solid(Color(UIColor.tertiarySystemBackground).opacity(0.0)), accentColor: Color.accentColor.opacity(0.0), enableCover: false, coverColor: Color.gray.opacity(0.0), cornerRadius: 16.0, minTopDistance: 100))
     }
 }
