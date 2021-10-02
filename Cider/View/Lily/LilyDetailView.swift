@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct LilyDetailView: View, LilyRepositoryInjectable {
-    var resource: String
+    let resource: String
     @StateObject var lilyDetailVM = LilyDetailViewModel()
     var body: some View {
         ZStack {
             List {
-                Section(header: LilyDetailViewHeader(lily: self.lilyDetailVM.lily)) {}
+                Section(header: LilyDetailViewHeader(lilyDetailVM: self.lilyDetailVM)) {}
                 Section(header: Text("ガーデン・レギオン情報")) {
                     if let lily = self.lilyDetailVM.lily {
                         LilyDetailGardenLegionInfoView(lily: lily)
@@ -55,10 +55,12 @@ struct LilyDetailView: View, LilyRepositoryInjectable {
             .navigationBarTitleDisplayMode(.inline)
             .onAppear {
                 self.lilyDetailVM.loadLilyDetail(resource: resource)
+                self.lilyDetailVM.loadImageRecords(resource: resource)
             }
             
             LoadingView(state: self.$lilyDetailVM.state) {
                 self.lilyDetailVM.loadLilyDetail(resource: resource)
+                self.lilyDetailVM.loadImageRecords(resource: resource)
             }
         }
     }

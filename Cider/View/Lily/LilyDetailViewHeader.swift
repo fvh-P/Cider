@@ -8,9 +8,23 @@
 import SwiftUI
 
 struct LilyDetailViewHeader: View {
-    var lily: Lily?
+    @ObservedObject var lilyDetailVM: LilyDetailViewModel
+    @Environment(\.imageCache) var cache: ImageCache
+    var lily: Lily? {
+        self.lilyDetailVM.lily
+    }
+    var icon: [ImageRecord] {
+        self.lilyDetailVM.imageRecords.filter{ $0.type == "icon" }
+    }
     var body: some View {
         VStack {
+            if let icon = icon.randomElement() {
+                HStack {
+                    ImageView(url: icon.imageUrl, cache: cache, placeholder: ImageIndicatorView(isAnimating: true))
+                        .frame(height: 100, alignment: .leading)
+                    Spacer()
+                }
+            }
             HStack {
                 if let name = lily?.name {
                     Text(name)

@@ -7,8 +7,9 @@
 
 import SwiftUI
 
-class LilyListViewModel: LilyRepositoryInjectable, ObservableObject {
+class LilyListViewModel: LilyRepositoryInjectable, ImageRecordRepositoryInjectable, ObservableObject {
     @Published var lilies: [Lily] = []
+    @Published var imageRecords: [ImageRecord] = []
     @Published var state: LoadingState = .loading
     @Published var searchText: String = ""
     @Published var gardenSelection = "指定なし"
@@ -46,6 +47,31 @@ class LilyListViewModel: LilyRepositoryInjectable, ObservableObject {
             case .success(let lilies):
                 self.state = .success
                 self.lilies = lilies
+            }
+        }
+    }
+    
+    func loadImageRecords() {
+        if !self.imageRecords.isEmpty {
+            return
+        }
+        self.imageRecordRepository.getImageList() { result in
+            switch result {
+            case .success(let records):
+                self.imageRecords = records
+            case .failure(let reason):
+                switch reason {
+                case .forbidden:
+                    print("loadImageRecords: 403 Forbidden")
+                case .endpointNotFound:
+                    print("loadImageRecords: 404 Not Found")
+                case .badGateway:
+                    print("loadImageRecords: 502 Bad Gateway")
+                case .serviceTemporarilyUnavailable:
+                    print("loadImageRecords: 503 Service Temporarily Unavailable")
+                case .other(let msg):
+                    print(msg)
+                }
             }
         }
     }

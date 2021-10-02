@@ -37,10 +37,12 @@ struct LilyListView: View {
                 self.lilyListVM.legionSelection = self.legionSelection
                 self.lilyListVM.skillSelection = self.skillSelection
                 self.lilyListVM.loadLilyList()
+                //self.lilyListVM.loadImageRecords()
             }
             
             LoadingView(state: self.$lilyListVM.state) {
                 self.lilyListVM.loadLilyList()
+                //self.lilyListVM.loadImageRecords()
             }
         }
     }
