@@ -10,6 +10,7 @@ import SwiftUI
 struct LilyDetailView: View, LilyRepositoryInjectable {
     let resource: String
     @StateObject var lilyDetailVM = LilyDetailViewModel()
+    @Environment(\.imageCache) var cache: ImageCache
     var body: some View {
         ZStack {
             List {
@@ -48,6 +49,10 @@ struct LilyDetailView: View, LilyRepositoryInjectable {
                             }
                         }
                     }
+                }
+                
+                if self.lilyDetailVM.imageRecords.count > 0 {
+                    LilyDetailIconAuthorInfoView(lilyDetailVM: self.lilyDetailVM)
                 }
             }
             .listStyle(InsetGroupedListStyle())

@@ -14,6 +14,7 @@
 		29019C1A27087B2400E79357 /* ImageError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29019C1927087B2400E79357 /* ImageError.swift */; };
 		29019C1C27087B4000E79357 /* ImageAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29019C1B27087B4000E79357 /* ImageAPI.swift */; };
 		29019C1E27087BB700E79357 /* ImageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29019C1D27087BB700E79357 /* ImageRepository.swift */; };
+		29019C202708BFA300E79357 /* LilyDetailIconAuthorInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29019C1F2708BFA300E79357 /* LilyDetailIconAuthorInfoView.swift */; };
 		290274A626C12D840006EE57 /* CharmListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290274A526C12D840006EE57 /* CharmListView.swift */; };
 		290274AA26C131050006EE57 /* DecimalExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290274A926C131050006EE57 /* DecimalExtension.swift */; };
 		290274AC26C131D70006EE57 /* Corporation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290274AB26C131D70006EE57 /* Corporation.swift */; };
@@ -108,6 +109,7 @@
 		29019C1927087B2400E79357 /* ImageError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageError.swift; sourceTree = "<group>"; };
 		29019C1B27087B4000E79357 /* ImageAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAPI.swift; sourceTree = "<group>"; };
 		29019C1D27087BB700E79357 /* ImageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRepository.swift; sourceTree = "<group>"; };
+		29019C1F2708BFA300E79357 /* LilyDetailIconAuthorInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LilyDetailIconAuthorInfoView.swift; sourceTree = "<group>"; };
 		290274A526C12D840006EE57 /* CharmListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharmListView.swift; sourceTree = "<group>"; };
 		290274A926C131050006EE57 /* DecimalExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalExtension.swift; sourceTree = "<group>"; };
 		290274AB26C131D70006EE57 /* Corporation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Corporation.swift; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 				29A7CFEB26FF9FE400FFCC2B /* LilyDetailGardenLegionInfoView.swift */,
 				29A7CFED26FFA17B00FFCC2B /* LilyDetailBasicInfoView.swift */,
 				29A7CFEF26FFA22B00FFCC2B /* LilyDetailSkillCharmView.swift */,
+				29019C1F2708BFA300E79357 /* LilyDetailIconAuthorInfoView.swift */,
 			);
 			path = Lily;
 			sourceTree = "<group>";
@@ -507,6 +510,7 @@
 				29B39D852705D3C100172A8A /* CharmListViewModel.swift in Sources */,
 				29CC6CB726B5B1C90062EF80 /* PartialSheetStyle.swift in Sources */,
 				29A7CFE826FF578200FFCC2B /* LilyListViewModel.swift in Sources */,
+				29019C202708BFA300E79357 /* LilyDetailIconAuthorInfoView.swift in Sources */,
 				29B39D932705EBA300172A8A /* ImageRecordConstant.swift in Sources */,
 				29B39D972705F35B00172A8A /* ImageRecordError.swift in Sources */,
 				29CC6C9D26B000520062EF80 /* ResponsiveNavigationStyle.swift in Sources */,
@@ -598,7 +602,7 @@
 				CIDER_DISPLAY_NAME = "Cider (dev)";
 				CODE_SIGN_IDENTITY = "Apple Distribution: Kosuke Kurihara (JQ342Z7S5L)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 16;
 				DEVELOPMENT_ASSET_PATHS = "\"Cider/Preview Content\"";
 				DEVELOPMENT_TEAM = JQ342Z7S5L;
 				ENABLE_PREVIEWS = YES;
@@ -608,7 +612,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2.0;
+				MARKETING_VERSION = 0.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = net.fvhp.lily.Cider;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "match AdHoc net.fvhp.lily.Cider";
@@ -681,7 +685,7 @@
 				CIDER_DISPLAY_NAME = Cider;
 				CODE_SIGN_IDENTITY = "Apple Distribution: Kosuke Kurihara (JQ342Z7S5L)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 16;
 				DEVELOPMENT_ASSET_PATHS = "\"Cider/Preview Content\"";
 				DEVELOPMENT_TEAM = JQ342Z7S5L;
 				ENABLE_PREVIEWS = YES;
@@ -691,7 +695,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2.0;
+				MARKETING_VERSION = 0.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = net.fvhp.lily.Cider;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore net.fvhp.lily.Cider";
@@ -770,7 +774,7 @@
 				CIDER_DISPLAY_NAME = "Cider (dev)";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 16;
 				DEVELOPMENT_ASSET_PATHS = "\"Cider/Preview Content\"";
 				DEVELOPMENT_TEAM = JQ342Z7S5L;
 				ENABLE_PREVIEWS = YES;
@@ -780,7 +784,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2.0;
+				MARKETING_VERSION = 0.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = net.fvhp.lily.Cider;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

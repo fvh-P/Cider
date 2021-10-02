@@ -27,4 +27,17 @@ struct ImageRecord: Identifiable, Codable {
         case createdAt = "created_at"
         case updatedAt = "updated_at"
     }
+    
+    var lineSeparatedAuthorInfo: [String] {
+        self.authorInfo.components(separatedBy: .newlines)
+    }
+    
+    var authorInfoDictionary: [String : String] {
+        var dict: [String : String] = [:]
+        self.lineSeparatedAuthorInfo.forEach({ str in
+            let separated = str.components(separatedBy: ",")
+            dict[separated[0]] = separated[1]
+        })
+        return dict
+    }
 }
