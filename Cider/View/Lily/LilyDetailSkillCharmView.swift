@@ -23,8 +23,12 @@ struct LilyDetailSkillCharmView: View {
                 }
             }
         } else {
-            Text("N/A")
-                .foregroundColor(.gray)
+            HStack {
+                Text("レアスキル")
+                Spacer()
+                Text("N/A")
+                    .foregroundColor(.gray)
+            }
         }
         
         ListMultiLineRow(title: "サブスキル", values: lily.subSkill) { skill in
