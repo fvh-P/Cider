@@ -63,10 +63,13 @@ jobs:
         
         # SSHポートを開放する
         aws --profile cider-adhoc-deploy ec2 authorize-security-group-ingress --group-id ${SECURITY_GROUP} --protocol tcp --port 22 --cidr "$IP_ADDRESS"/32
-        sleep 5
+        
+        # ポートが開放されたことを確認
+        while true; do aws ec2 --profile cider-adhoc-deploy describe-security-groups --group-ids ${SECURITY_GROUP} | grep -q "\"CidrIp\": \"$IP_ADDRESS/32\"" && break; sleep 5; done
         
         # SCPでファイルをコピー
         scp -i .ssh/id_ed25519 -oStrictHostKeyChecking=no Cider.ipa manifest.plist $SCP_DESTINATION
+      timeout-minutes: 5
     - name: close port
       env:
         SECURITY_GROUP: ${{ secrets.AWS_SECURITY_GROUP_ID }}
