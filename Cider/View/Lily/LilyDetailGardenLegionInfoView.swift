@@ -15,6 +15,9 @@ struct LilyDetailGardenLegionInfoView: View {
         } else {
             ListSingleLineRow(title: "所属ガーデン", value: nil)
         }
+        if let rank = lily.rank {
+            ListSingleLineRow(title: "序列", value: "\(rank)位")
+        }
         if let gardenDepartment = lily.gardenDepartment {
             ListSingleLineRow(title: "学科", value: gardenDepartment)
         }
@@ -24,7 +27,6 @@ struct LilyDetailGardenLegionInfoView: View {
         if let gardenClass = lily.gardenClass {
             ListSingleLineRow(title: "クラス", value: gardenClass)
         }
-        
         
         if lily.gardenJobTitle.count > 0 {
             ListMultiLineRow(title: "ガーデン役職", values: lily.gardenJobTitle) { str in

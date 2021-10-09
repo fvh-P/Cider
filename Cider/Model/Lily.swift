@@ -45,6 +45,7 @@ class Lily: Identifiable, Codable {
     var grade: Int?
     var gardenClass: String?
     var gardenJobTitle: [String]
+    var rank: Int?
     var legion: Legion?
     var legionJobTitle: [String]
     var position: [String]
@@ -172,7 +173,7 @@ class Lily: Identifiable, Codable {
         return relations
     }
     
-    init(resource: String = "", familyName: String? = nil, familyNameKana: String? = nil, familyNameEn: String? = nil, additionalName: String? = nil, additionalNameKana: String? = nil, additionalNameEn: String? = nil, givenName: String? = nil, givenNameKana: String? = nil, givenNameEn: String? = nil, name: String? = nil, nameKana: String? = nil, nameEn: String? = nil, anotherName: [String] = [], age: Int? = nil, height: Double? = nil, weight: Double? = nil, birthDate: Date? = nil, lifeStatus: String? = nil, killedIn: String? = nil, bloodType: String? = nil, color: Color? = nil, birthPlace: String? = nil, favorite: [String] = [], notGood: [String] = [], hobbyTalent: [String] = [], skillerVal: Int? = nil, rareSkill: String? = nil, subSkill: [String] = [], isBoosted: Bool? = nil, boostedSkill: [String] = [], charm: [LilyCharm] = [], garden: String? = nil, gardenDepartment: String? = nil, grade: Int? = nil, gardenClass: String? = nil, gardenJobTitle: [String] = [], legion: Legion? = nil, legionJobTitle: [String] = [], position: [String] = [], pastLegion: [Legion] = [], schutzengel: Lily? = nil, pastSchutzengel: [Lily] = [], schild: Lily? = nil, pastSchild: [Lily] = [], olderSchwester: Lily? = nil, pastOlderSchwester: [Lily] = [], youngerSchwester: Lily? = nil, pastYoungerSchwester: [Lily] = [], roomMate: Lily? = nil, sibling: [Relationship] = [], relationship: [Relationship] = [], cast: [LilyCast] = [], RDFType: String? = nil) {
+    init(resource: String = "", familyName: String? = nil, familyNameKana: String? = nil, familyNameEn: String? = nil, additionalName: String? = nil, additionalNameKana: String? = nil, additionalNameEn: String? = nil, givenName: String? = nil, givenNameKana: String? = nil, givenNameEn: String? = nil, name: String? = nil, nameKana: String? = nil, nameEn: String? = nil, anotherName: [String] = [], age: Int? = nil, height: Double? = nil, weight: Double? = nil, birthDate: Date? = nil, lifeStatus: String? = nil, killedIn: String? = nil, bloodType: String? = nil, color: Color? = nil, birthPlace: String? = nil, favorite: [String] = [], notGood: [String] = [], hobbyTalent: [String] = [], skillerVal: Int? = nil, rareSkill: String? = nil, subSkill: [String] = [], isBoosted: Bool? = nil, boostedSkill: [String] = [], charm: [LilyCharm] = [], garden: String? = nil, gardenDepartment: String? = nil, grade: Int? = nil, gardenClass: String? = nil, gardenJobTitle: [String] = [], rank: Int? = nil, legion: Legion? = nil, legionJobTitle: [String] = [], position: [String] = [], pastLegion: [Legion] = [], schutzengel: Lily? = nil, pastSchutzengel: [Lily] = [], schild: Lily? = nil, pastSchild: [Lily] = [], olderSchwester: Lily? = nil, pastOlderSchwester: [Lily] = [], youngerSchwester: Lily? = nil, pastYoungerSchwester: [Lily] = [], roomMate: Lily? = nil, sibling: [Relationship] = [], relationship: [Relationship] = [], cast: [LilyCast] = [], RDFType: String? = nil) {
         self.resource = resource
         self.familyName = familyName
         self.familyNameKana = familyNameKana
@@ -210,6 +211,7 @@ class Lily: Identifiable, Codable {
         self.grade = grade
         self.gardenClass = gardenClass
         self.gardenJobTitle = gardenJobTitle
+        self.rank = rank
         self.legion = legion
         self.legionJobTitle = legionJobTitle
         self.position = position
@@ -425,6 +427,7 @@ extension Lily {
         })
         let garden = TriplesHelper.findOne(triples: triples, predicate: "\(Self.lily)garden")?.object.value
         let gardenDepartment = TriplesHelper.findOne(triples: triples, predicate: "\(Self.lily)gardenDepartment")?.object.value
+        let rank: Int? = TriplesHelper.findOne(triples: triples, predicate: "\(Self.lily)rank")?.object.value.parse()
         let grade: Int? = TriplesHelper.findOne(triples: triples, predicate: "\(Self.lily)grade")?.object.value.parse()
         let gardenClass = TriplesHelper.findOne(triples: triples, predicate: "\(Self.lily)class")?.object.value
         let gardenJobTitle = TriplesHelper.findMany(triples: triples, predicate: "\(Self.lily)gardenJobTitle").map { $0.object.value }
@@ -471,7 +474,7 @@ extension Lily {
             }))
         }
         let RDFType = TriplesHelper.findOne(triples: triples, predicate: "\(Self.rdf)type")?.object.value
-        return Lily(resource: key, familyName: familyName, familyNameKana: familyNameKana, familyNameEn: familyNameEn, additionalName: additionalName, additionalNameKana: additionalNameKana, additionalNameEn: additionalNameEn, givenName: givenName, givenNameKana: givenNameKana, givenNameEn: givenNameEn, name: name, nameKana: nameKana, nameEn: nameEn, anotherName: anotherName, age: age, height: height, weight: weight, birthDate: birthDate, lifeStatus: lifeStatus, killedIn: killedIn, bloodType: bloodType, color: color, birthPlace: birthPlace, favorite: favorite, notGood: notGood, hobbyTalent: hobbyTalent, skillerVal: skillerVal, rareSkill: rareSkill, subSkill: subSkill, isBoosted: isBoosted, boostedSkill: boostedSkill, charm: charm, garden: garden, gardenDepartment: gardenDepartment, grade: grade, gardenClass: gardenClass, gardenJobTitle: gardenJobTitle, legion: legion, legionJobTitle: legionJobTitle, position: position, pastLegion: pastLegion, schutzengel: schutzengel, pastSchutzengel: pastSchutzengel, schild: schild, pastSchild: pastSchild, olderSchwester: olderSchwester, pastOlderSchwester: pastOlderSchwester, youngerSchwester: youngerSchwester, pastYoungerSchwester: pastYoungerSchwester, roomMate: roomMate, sibling: sibling, relationship: relationship, cast: cast, RDFType: RDFType)
+        return Lily(resource: key, familyName: familyName, familyNameKana: familyNameKana, familyNameEn: familyNameEn, additionalName: additionalName, additionalNameKana: additionalNameKana, additionalNameEn: additionalNameEn, givenName: givenName, givenNameKana: givenNameKana, givenNameEn: givenNameEn, name: name, nameKana: nameKana, nameEn: nameEn, anotherName: anotherName, age: age, height: height, weight: weight, birthDate: birthDate, lifeStatus: lifeStatus, killedIn: killedIn, bloodType: bloodType, color: color, birthPlace: birthPlace, favorite: favorite, notGood: notGood, hobbyTalent: hobbyTalent, skillerVal: skillerVal, rareSkill: rareSkill, subSkill: subSkill, isBoosted: isBoosted, boostedSkill: boostedSkill, charm: charm, garden: garden, gardenDepartment: gardenDepartment, grade: grade, gardenClass: gardenClass, gardenJobTitle: gardenJobTitle, rank: rank, legion: legion, legionJobTitle: legionJobTitle, position: position, pastLegion: pastLegion, schutzengel: schutzengel, pastSchutzengel: pastSchutzengel, schild: schild, pastSchild: pastSchild, olderSchwester: olderSchwester, pastOlderSchwester: pastOlderSchwester, youngerSchwester: youngerSchwester, pastYoungerSchwester: pastYoungerSchwester, roomMate: roomMate, sibling: sibling, relationship: relationship, cast: cast, RDFType: RDFType)
     }
     
     public static func convertForRelations(from dict: Dictionary<String, [Triple]>) -> [Lily] {
