@@ -44,9 +44,9 @@ platform :ios do
       export_options: {
         method: "ad-hoc",
         manifest: {
-            appURL: "https://cider.lily.fvhp.net/Cider.ipa",
-            displayImageURL: "https://cider.lily.fvhp.net/image57.png",
-            fullSizeImageURL: "https://cider.lily.fvhp.net/image512.png"
+            appURL: "https://dev.cider.lily.fvhp.net/Cider.ipa",
+            displayImageURL: "https://dev.cider.lily.fvhp.net/image57.png",
+            fullSizeImageURL: "https://dev.cider.lily.fvhp.net/image512.png"
         },
         provisioningProfiles: {
             "net.fvhp.lily.Cider" => "match AdHoc net.fvhp.lily.Cider"
