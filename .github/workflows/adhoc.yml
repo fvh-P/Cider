@@ -33,7 +33,6 @@ jobs:
         ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY_ID }}
         SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         AWS_REGION: ${{ secrets.AWS_REGION }}
-        SECURITY_GROUP: ${{ secrets.AWS_SECURITY_GROUP_ID }}
       run: |
 
         # AWS CLIをインストール
@@ -44,38 +43,8 @@ jobs:
         # AWS CLIに設定をする
         printf "${ACCESS_KEY}\n${SECRET_ACCESS_KEY}\n${AWS_REGION}\njson\n" | aws configure --profile cider-adhoc-deploy
         aws configure get aws_access_key_id --profile cider-adhoc-deploy
-    - name: prepare .ssh dir
-      run: mkdir -p .ssh && chmod 700 .ssh
-    - name: ssh key generate
-      run: echo "$SSH_KEY" > .ssh/id_ed25519 && chmod 600 .ssh/id_ed25519
-      env:
-        SSH_KEY: ${{ secrets.SSH_KEY }}
-    - name: Public IP
-      id: ip
-      uses: haythem/public-ip@v1.2
-    - name: open port and deploy
-      env:
-        SECURITY_GROUP: ${{ secrets.AWS_SECURITY_GROUP_ID }}
-        SCP_DESTINATION: ${{ secrets.SCP_DESTINATION }}
+    - name: deploy to S3
+      env: 
+        S3_BUCKET_NAME: ${{ secrets.S3_BUCKET_NAME }}
       run: |
-        # https://github.com/haythem/public-ip
-        IP_ADDRESS=`echo ${{ steps.ip.outputs.ipv4 }}`
-        
-        # SSHポートを開放する
-        aws --profile cider-adhoc-deploy ec2 authorize-security-group-ingress --group-id ${SECURITY_GROUP} --protocol tcp --port 22 --cidr "$IP_ADDRESS"/32
-        
-        # ポートが開放されたことを確認
-        while true; do aws ec2 --profile cider-adhoc-deploy describe-security-groups --group-ids ${SECURITY_GROUP} | grep -q "\"CidrIp\": \"$IP_ADDRESS/32\"" && break; sleep 5; done
-        
-        # SCPでファイルをコピー
-        scp -4 -i .ssh/id_ed25519 -oStrictHostKeyChecking=no Cider.ipa manifest.plist $SCP_DESTINATION
-      timeout-minutes: 5
-    - name: close port
-      env:
-        SECURITY_GROUP: ${{ secrets.AWS_SECURITY_GROUP_ID }}
-      run: |
-        # https://github.com/haythem/public-ip
-        IP_ADDRESS=`echo ${{ steps.ip.outputs.ipv4 }}`
-
-        # SSHのポートを閉じる
-        aws --profile cider-adhoc-deploy ec2 revoke-security-group-ingress --group-id ${SECURITY_GROUP} --protocol tcp --port 22 --cidr "$IP_ADDRESS"/32
+        s3 cp . s3://${S3_BUCKET_NAME} --exclude "*" --include "Cider.ipa" --include "manifest.plist" --recursive
