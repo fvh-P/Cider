@@ -26,7 +26,17 @@ struct LilyDetailIconAuthorInfoView: View {
                     Spacer()
                     if let pxv = imageRecord.authorInfoDictionary["pixiv"] {
                         Button(action: {
-                            openURL(URL(string: "pixiv://\(pxv)")!)
+                            guard let appUrl = URL(string: "pixiv://\(pxv)") else {
+                                return
+                            }
+                            if UIApplication.shared.canOpenURL(appUrl) {
+                                openURL(appUrl)
+                            } else {
+                                guard let webUrl = URL(string: "https://pixiv.net/\(pxv)") else {
+                                    return
+                                }
+                                openURL(webUrl)
+                            }
                         }, label: {
                             Image("PixivIcon")
                                 .resizable()
@@ -38,7 +48,17 @@ struct LilyDetailIconAuthorInfoView: View {
                     }
                     if let twi = imageRecord.authorInfoDictionary["twitter"] {
                         Button(action: {
-                            openURL(URL(string: "twitter://user?screen_name=\(twi)")!)
+                            guard let appUrl = URL(string: "twitter://user?screen_name=\(twi)") else {
+                                return
+                            }
+                            if UIApplication.shared.canOpenURL(appUrl) {
+                                openURL(appUrl)
+                            } else {
+                                guard let webUrl = URL(string: "https://twitter.com/\(twi)") else {
+                                    return
+                                }
+                                openURL(webUrl)
+                            }
                         }, label: {
                             Image("TwitterIcon")
                                 .resizable()
