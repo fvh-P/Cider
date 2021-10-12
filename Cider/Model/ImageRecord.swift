@@ -29,7 +29,7 @@ struct ImageRecord: Identifiable, Codable {
     }
     
     var lineSeparatedAuthorInfo: [String] {
-        self.authorInfo.components(separatedBy: .newlines)
+        self.authorInfo.split(whereSeparator: \.isNewline).map({ String($0) })
     }
     
     var authorInfoDictionary: [String : String] {
