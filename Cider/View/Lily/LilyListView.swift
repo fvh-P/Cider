@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct LilyListView: View {
+    var isRootList = false
     @EnvironmentObject var partialSheetManager: PartialSheetManager
+    @EnvironmentObject var lilyNavigationHelper: LilyNavigationHelper
     var gardenSelection = "指定なし"
     var legionSelection = "指定なし"
     var skillSelection = "指定なし"
@@ -22,8 +24,14 @@ struct LilyListView: View {
                         .id(0)
                     
                     ForEach(self.lilyListVM.filteredLilies) { lily in
-                        NavigationLink(destination: LilyDetailView(resource: lily.resource)) {
-                            LilyCardView(lily: lily)
+                        if isRootList {
+                            NavigationLink(destination: LilyDetailView(resource: lily.resource), tag: lily.resource, selection: self.$lilyNavigationHelper.selection) {
+                                LilyCardView(lily: lily)
+                            }
+                        } else {
+                            NavigationLink(destination: LilyDetailView(resource: lily.resource)) {
+                                LilyCardView(lily: lily)
+                            }
                         }
                     }
                 }
@@ -61,5 +69,6 @@ struct LilyListView: View {
                 //self.lilyListVM.loadImageRecords()
             }
         }
+        .navigationTitle("リリィ一覧")
     }
 }
