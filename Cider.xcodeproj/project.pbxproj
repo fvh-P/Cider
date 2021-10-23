@@ -43,6 +43,8 @@
 		29A7CFEC26FF9FE400FFCC2B /* LilyDetailGardenLegionInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A7CFEB26FF9FE400FFCC2B /* LilyDetailGardenLegionInfoView.swift */; };
 		29A7CFEE26FFA17B00FFCC2B /* LilyDetailBasicInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A7CFED26FFA17B00FFCC2B /* LilyDetailBasicInfoView.swift */; };
 		29A7CFF026FFA22B00FFCC2B /* LilyDetailSkillCharmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A7CFEF26FFA22B00FFCC2B /* LilyDetailSkillCharmView.swift */; };
+		29B195D02724307800045FD9 /* PathAnimatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B195CF2724307800045FD9 /* PathAnimatingView.swift */; };
+		29B195D32724447900045FD9 /* BirthdayBalloonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B195D22724447900045FD9 /* BirthdayBalloonView.swift */; };
 		29B39D852705D3C100172A8A /* CharmListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B39D842705D3C100172A8A /* CharmListViewModel.swift */; };
 		29B39D872705D3CB00172A8A /* CharmDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B39D862705D3CB00172A8A /* CharmDetailViewModel.swift */; };
 		29B39D892705D3DC00172A8A /* CharmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B39D882705D3DC00172A8A /* CharmRepository.swift */; };
@@ -138,6 +140,8 @@
 		29A7CFEB26FF9FE400FFCC2B /* LilyDetailGardenLegionInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LilyDetailGardenLegionInfoView.swift; sourceTree = "<group>"; };
 		29A7CFED26FFA17B00FFCC2B /* LilyDetailBasicInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LilyDetailBasicInfoView.swift; sourceTree = "<group>"; };
 		29A7CFEF26FFA22B00FFCC2B /* LilyDetailSkillCharmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LilyDetailSkillCharmView.swift; sourceTree = "<group>"; };
+		29B195CF2724307800045FD9 /* PathAnimatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathAnimatingView.swift; sourceTree = "<group>"; };
+		29B195D22724447900045FD9 /* BirthdayBalloonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayBalloonView.swift; sourceTree = "<group>"; };
 		29B39D842705D3C100172A8A /* CharmListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharmListViewModel.swift; sourceTree = "<group>"; };
 		29B39D862705D3CB00172A8A /* CharmDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharmDetailViewModel.swift; sourceTree = "<group>"; };
 		29B39D882705D3DC00172A8A /* CharmRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharmRepository.swift; sourceTree = "<group>"; };
@@ -217,6 +221,8 @@
 				296EBFC426D2BBA00085C33D /* ListItemsWrapRow.swift */,
 				29CC6C9226AEB5AB0062EF80 /* ListSingleLineRow.swift */,
 				29567E0B26F372B400CFB7FD /* ListSingleLineNavLinkRow.swift */,
+				29B195CF2724307800045FD9 /* PathAnimatingView.swift */,
+				29B195D22724447900045FD9 /* BirthdayBalloonView.swift */,
 			);
 			path = ViewComponent;
 			sourceTree = "<group>";
@@ -513,6 +519,7 @@
 				29CAA3BB269FE8F2004C1315 /* SparqlResponse.swift in Sources */,
 				290274AE26C13BBB0006EE57 /* CharmCardView.swift in Sources */,
 				29A7CFEA26FF9DC900FFCC2B /* LilyDetailViewModel.swift in Sources */,
+				29B195D32724447900045FD9 /* BirthdayBalloonView.swift in Sources */,
 				297B3F3A2715DA0600A9CF4F /* CharmNavigationHelper.swift in Sources */,
 				29CAA3AB269FD973004C1315 /* CiderApp.swift in Sources */,
 				29CAA3C126A02D4B004C1315 /* Legion.swift in Sources */,
@@ -533,6 +540,7 @@
 				29B39D972705F35B00172A8A /* ImageRecordError.swift in Sources */,
 				29CC6C9D26B000520062EF80 /* ResponsiveNavigationStyle.swift in Sources */,
 				297B3F382715AB1E00A9CF4F /* LilyNavigationHelper.swift in Sources */,
+				29B195D02724307800045FD9 /* PathAnimatingView.swift in Sources */,
 				290274AC26C131D70006EE57 /* Corporation.swift in Sources */,
 				29B39D912705EB1700172A8A /* ImageRecordAPI.swift in Sources */,
 				29A7CFEE26FFA17B00FFCC2B /* LilyDetailBasicInfoView.swift in Sources */,
@@ -622,7 +630,7 @@
 				CIDER_DISPLAY_NAME = "Cider (dev)";
 				CODE_SIGN_IDENTITY = "Apple Distribution: Kosuke Kurihara (JQ342Z7S5L)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 23;
+				CURRENT_PROJECT_VERSION = 24;
 				DEVELOPMENT_ASSET_PATHS = "\"Cider/Preview Content\"";
 				DEVELOPMENT_TEAM = JQ342Z7S5L;
 				ENABLE_PREVIEWS = YES;
@@ -632,7 +640,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2.2;
+				MARKETING_VERSION = 0.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.fvhp.lily.Cider;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "match AdHoc net.fvhp.lily.Cider";
@@ -705,7 +713,7 @@
 				CIDER_DISPLAY_NAME = Cider;
 				CODE_SIGN_IDENTITY = "Apple Distribution: Kosuke Kurihara (JQ342Z7S5L)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 23;
+				CURRENT_PROJECT_VERSION = 24;
 				DEVELOPMENT_ASSET_PATHS = "\"Cider/Preview Content\"";
 				DEVELOPMENT_TEAM = JQ342Z7S5L;
 				ENABLE_PREVIEWS = YES;
@@ -715,7 +723,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2.2;
+				MARKETING_VERSION = 0.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.fvhp.lily.Cider;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore net.fvhp.lily.Cider";
@@ -794,7 +802,7 @@
 				CIDER_DISPLAY_NAME = "Cider (dev)";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 23;
+				CURRENT_PROJECT_VERSION = 24;
 				DEVELOPMENT_ASSET_PATHS = "\"Cider/Preview Content\"";
 				DEVELOPMENT_TEAM = JQ342Z7S5L;
 				ENABLE_PREVIEWS = YES;
@@ -804,7 +812,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2.2;
+				MARKETING_VERSION = 0.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.fvhp.lily.Cider;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

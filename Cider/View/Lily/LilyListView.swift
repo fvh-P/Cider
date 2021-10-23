@@ -61,14 +61,20 @@ struct LilyListView: View {
                 self.lilyListVM.legionSelection = self.legionSelection
                 self.lilyListVM.skillSelection = self.skillSelection
                 self.lilyListVM.loadLilyList()
-                //self.lilyListVM.loadImageRecords()
             }
             
             LoadingView(state: self.$lilyListVM.state) {
                 self.lilyListVM.loadLilyList()
-                //self.lilyListVM.loadImageRecords()
             }
         }
         .navigationTitle("リリィ一覧")
+    }
+}
+
+struct LilyListView_Preview: PreviewProvider {
+    static var previews: some View {
+        LilyListView(isRootList: true)
+            .environmentObject(PartialSheetManager())
+            .environmentObject(LilyNavigationHelper())
     }
 }

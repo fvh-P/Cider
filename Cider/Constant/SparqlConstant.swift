@@ -19,7 +19,7 @@ SELECT ?subject ?predicate ?object
 WHERE {
     VALUES ?class { lily:Lily lily:Teacher lily:Character lily:Legion }
     VALUES ?predicate {
-        schema:name lily:nameKana lily:givenNameKana foaf:age
+        schema:name lily:nameKana lily:givenNameKana foaf:age schema:birthDate
         lily:rareSkill lily:subSkill lily:isBoosted lily:boostedSkill
         lily:garden lily:grade lily:legion lily:legionJobTitle lily:position
         schema:height schema:weight lily:bloodType lily:alternateName rdf:type

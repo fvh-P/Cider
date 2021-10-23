@@ -362,6 +362,7 @@ extension Lily {
             let givenNameKana = TriplesHelper.findOne(triples: triples, predicate: "\(Self.lily)givenNameKana")?.object.value
             let age_str = TriplesHelper.findOne(triples: triples, predicate: "\(Self.foaf)age")?.object.value
             let age: Int? = age_str?.parse()
+            let birthDate: Date? = TriplesHelper.findOne(triples: triples, predicate: "\(Self.schema)birthDate")?.object.value.dateFromString(format: "--MM-dd")
             let rareSkill = TriplesHelper.findOne(triples: triples, predicate: "\(Self.lily)rareSkill")?.object.value
             let subSkill = TriplesHelper.findMany(triples: triples, predicate: "\(Self.lily)subSkill").map({t -> String in t.object.value})
             let isBoosted_str = TriplesHelper.findOne(triples: triples, predicate: "\(Self.lily)isBoosted")?.object.value
@@ -383,7 +384,7 @@ extension Lily {
             let bloodType = TriplesHelper.findOne(triples: triples, predicate: "\(Self.lily)bloodType")?.object.value
             let RDFType = TriplesHelper.findOne(triples: triples, predicate: "\(Self.rdf)type")?.object.value
             
-            return Lily(resource: key, givenNameKana: givenNameKana, name: name, nameKana: nameKana, nameEn: nameEn, age: age, height: height, weight: weight, bloodType: bloodType, rareSkill: rareSkill, subSkill: subSkill, isBoosted: isBoosted, boostedSkill: boostedSkill, garden: garden, grade: grade, legion: legion, legionJobTitle: legionJobTitle, position: position, RDFType: RDFType)
+            return Lily(resource: key, givenNameKana: givenNameKana, name: name, nameKana: nameKana, nameEn: nameEn, age: age, height: height, weight: weight, birthDate: birthDate, bloodType: bloodType, rareSkill: rareSkill, subSkill: subSkill, isBoosted: isBoosted, boostedSkill: boostedSkill, garden: garden, grade: grade, legion: legion, legionJobTitle: legionJobTitle, position: position, RDFType: RDFType)
         })
     }
     

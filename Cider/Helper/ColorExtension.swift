@@ -49,6 +49,10 @@ extension Color: Codable {
         try container.encode(rgba.green, forKey: .green)
         try container.encode(rgba.blue, forKey: .blue)
     }
+    
+    static var random: Color {
+        return Color(red: .random(in: 0...1), green: .random(in: 0...1), blue: .random(in: 0...1))
+    }
 }
 
 extension UIColor {

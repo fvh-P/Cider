@@ -13,6 +13,9 @@ struct LilyCardView: View {
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
+                if lily.birthDate != nil && Calendar.current.isDateInToday(lily.birthDate!) {
+                    Text("🎉")
+                }
                 Text(lily.name ?? "名称不明リリィ")
                     .font(.headline)
             }
@@ -43,5 +46,11 @@ struct LilyCardView: View {
             .font(.caption)
         }
         .padding(.all, 5)
+    }
+}
+
+struct LilyCardView_Preview: PreviewProvider {
+    static var previews: some View {
+        LilyCardView(lily: Lily())
     }
 }

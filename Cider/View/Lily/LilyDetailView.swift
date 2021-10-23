@@ -63,6 +63,15 @@ struct LilyDetailView: View, LilyRepositoryInjectable {
                 self.lilyDetailVM.loadImageRecords(resource: resource)
             }
             
+            if self.lilyDetailVM.state == .success && self.lilyDetailVM.lily?.birthDate != nil && Calendar.current.isDateInToday(self.lilyDetailVM.lily!.birthDate!) {
+                GeometryReader { gr in
+                    ForEach(1...10, id:\.self) { _ in
+                        BirthdayBalloonView(proxy: gr)
+                            .allowsHitTesting(false)
+                    }
+                }
+            }
+            
             LoadingView(state: self.$lilyDetailVM.state) {
                 self.lilyDetailVM.loadLilyDetail(resource: resource)
                 self.lilyDetailVM.loadImageRecords(resource: resource)
