@@ -34,14 +34,14 @@ struct SkillPicker: View {
                         .clipped()
                         Picker(selection: $skillSelection, label: Text("スキル")) {
                             ForEach(self.skills[self.skillClass], id:\.self) { item in
-                                HStack{
+                                HStack {
                                     Text(item).tag(item)
-                                    if let iconString = Lily.rareSkillLabelString(str: item) {
-                                        Image(systemName: iconString)
-                                    } else if let iconString = Lily.subSkillLabelString(str: item) {
-                                        Image(systemName: iconString)
-                                    } else if let iconString = Lily.boostedSkillLabelString(str: item) {
-                                        Image(systemName: iconString)
+                                    if let rareSkillIcon = Lily.rareSkillIcon(item) {
+                                        rareSkillIcon
+                                    } else if let subSkillIcon = Lily.subSkillIcon(item) {
+                                        subSkillIcon
+                                    } else if let boostedSkillIcon = Lily.boostedSkillIcon(item) {
+                                        boostedSkillIcon
                                             .foregroundColor("8b0000".convertToColor())
                                     }
                                 }

@@ -79,46 +79,6 @@ class Lily: Identifiable, Codable {
             return "\(h)年"
         }
     }
-    var rareSkillLabelString: String? {
-        switch self.rareSkill {
-        case "ファンタズム":
-            return "bolt.horizontal.circle"
-        case "鷹の目":
-            return "eye.circle"
-        case "ルナティックトランサー":
-            return "moon.stars"
-        case "天の秤目":
-            return "scope"
-        case "ヘリオスフィア":
-            return "shield.checkerboard"
-        case "ブレイブ":
-            return "flame"
-        case "縮地":
-            return "wind"
-        case "レジスタ":
-            return "atom"
-        case "テスタメント":
-            return "dot.arrowtriangles.up.right.down.left.circle"
-        case "ゼノンパラドキサ":
-            return "arrowshape.turn.up.left.2"
-        case "円環の御手":
-            return "hands.sparkles" //"flag.filled.and.flag.crossed"
-        case "Z":
-            return "timer"
-        case "ユーバーザイン":
-            return "aqi.medium"
-        case "この世の理":
-            return "move.3d"
-        case "フェイズトランセンデンス":
-            return "tornado"
-        case "ラプラス":
-            return "crown"
-        case "カリスマ":
-            return "crown"
-        default:
-            return nil
-        }
-    }
     
     public func getAllRelations() -> [Relationship] {
         var relations: [Relationship] = []
@@ -257,98 +217,100 @@ extension Lily {
     private static let foaf = "http://xmlns.com/foaf/0.1/"
     private static let rdf = "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
     
-    public static func rareSkillLabelString(str: String?) -> String? {
+    public static func rareSkillIcon(_ str: String?) -> Image? {
         switch str {
         case "ファンタズム":
-            return "bolt.horizontal.circle"
+            return Image(systemName: "bolt.horizontal.circle")
         case "鷹の目":
-            return "eye.circle"
+            return Image(systemName: "eye.circle")
         case "ルナティックトランサー":
-            return "moon.stars"
+            return Image(systemName: "moon.stars")
         case "天の秤目":
-            return "scope"
+            return Image(systemName: "scope")
         case "ヘリオスフィア":
-            return "shield.checkerboard"
+            return Image(systemName: "shield.checkerboard")
         case "ブレイブ":
-            return "flame"
+            return Image(systemName: "flame")
         case "縮地":
-            return "wind"
+            return Image(systemName: "wind")
         case "レジスタ":
-            return "atom"
+            return Image(systemName: "atom")
         case "テスタメント":
-            return "dot.arrowtriangles.up.right.down.left.circle"
+            return Image(systemName: "dot.arrowtriangles.up.right.down.left.circle")
         case "ゼノンパラドキサ":
-            return "arrowshape.turn.up.left.2"
+            return Image(systemName: "arrowshape.turn.up.left.2")
         case "円環の御手":
-            return "hands.sparkles" //"flag.filled.and.flag.crossed"
+            return Image("custom.flag.filled.and.flag.crossed")
         case "Z":
-            return "timer"
+            return Image(systemName: "timer")
         case "ユーバーザイン":
-            return "aqi.medium"
+            return Image("custom.aqi.medium")
         case "この世の理":
-            return "move.3d"
+            return Image(systemName: "move.3d")
         case "フェイズトランセンデンス":
-            return "tornado"
+            return Image(systemName: "tornado")
         case "ラプラス":
-            return "crown"
+            return Image(systemName: "crown")
         case "カリスマ":
-            return "crown"
+            return Image(systemName: "crown")
         default:
             return nil
         }
     }
     
-    public static func subSkillLabelString(str: String?) -> String? {
+    public static func subSkillIcon(_ str: String?) -> Image? {
         switch str {
         case "虹の軌跡":
-            return "bolt.horizontal.circle"
+            return Image(systemName: "bolt.horizontal.circle")
         case "千里眼":
-            return "eye.circle"
+            return Image(systemName: "eye.circle")
         case "狂乱の閾":
-            return "moon.stars"
+            return Image(systemName: "moon.stars")
         case "魔眼":
-            return "scope"
+            return Image(systemName: "scope")
         case "聖域転換":
-            return "shield.checkerboard"
+            return Image(systemName: "shield.checkerboard")
         case "インビジブルワン":
-            return "wind"
+            return Image(systemName: "wind")
         case "軍神の加護":
-            return "atom"
+            return Image(systemName: "atom")
         case "約束の領域":
-            return "dot.arrowtriangles.up.right.down.left.circle"
+            return Image(systemName: "dot.arrowtriangles.up.right.down.left.circle")
         case "ステルス":
-            return "aqi.medium"
+            return Image("custom.aqi.medium")
         case "Whole order":
-            return "move.3d"
+            return Image(systemName: "move.3d")
         case "Awakening":
-            return "tornado"
+            return Image(systemName: "tornado")
         case "カリスマ":
-            return "crown"
+            return Image(systemName: "crown")
         default:
             return nil
         }
     }
     
-    public static func boostedSkillLabelString(str: String?) -> String? {
+    public static func boostedSkillIcon(_ str: String?) -> Image? {
         switch str {
         case "リジェネレーター":
-            return "sparkles"
+            return Image(systemName: "sparkles")
         case "アルケミートレース":
-            return "drop.fill"
+            return Image(systemName: "drop.fill")
         case "エンハンスメント":
-            return "capslock.fill"
+            return Image(systemName: "capslock.fill")
         case "エーテルボディ":
-            return "person.2.fill"
+            return Image(systemName: "person.2.fill")
         case "ドレイン":
-            return "leaf.fill"
+            return Image(systemName: "leaf.fill")
         case "アストラルガーダー":
-            return "shield.fill"
+            return Image(systemName: "shield.fill")
         case "連続強化補助":
-            return "plus.diamond.fill"
+            return Image(systemName: "plus.diamond.fill")
         case "ノスフェラトゥ":
-            return "infinity.circle.fill"
+            return Image(systemName: "infinity.circle.fill")
         case "マギリフレクター":
-            return "camera.filters"
+            return Image(systemName: "camera.filters")
+        case "オートヒール":
+            return Image(systemName: "bandage.fill")
         default:
             return nil
         }

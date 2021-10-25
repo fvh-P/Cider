@@ -83,8 +83,8 @@ struct LilyDetailViewHeader: View {
             if lily?.rareSkill != nil && lily?.rareSkill != "未覚醒" {
                 HStack {
                     VStack {
-                        if let iconString = lily?.rareSkillLabelString {
-                            Image(systemName: iconString)
+                        if let rareSkillIcon = Lily.rareSkillIcon(lily?.rareSkill) {
+                            rareSkillIcon
                         }
                         Text((lily?.rareSkill)!)
                     }

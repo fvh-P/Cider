@@ -17,8 +17,8 @@ struct LilyDetailSkillCharmView: View {
                     Text("レアスキル")
                     Spacer()
                     Text(rareSkill)
-                    if let iconString = lily.rareSkillLabelString {
-                        Image(systemName: iconString)
+                    if let rareSkillIcon = Lily.rareSkillIcon(rareSkill) {
+                        rareSkillIcon
                     }
                 }
             }
@@ -36,8 +36,8 @@ struct LilyDetailSkillCharmView: View {
                 HStack {
                     Spacer()
                     Text(skill)
-                    if let iconString = Lily.subSkillLabelString(str: skill) {
-                        Image(systemName: iconString)
+                    if let subSkillIcon = Lily.subSkillIcon(skill) {
+                        subSkillIcon
                     }
                 }
             }
@@ -49,8 +49,8 @@ struct LilyDetailSkillCharmView: View {
                     HStack {
                         Spacer()
                         Text(skill)
-                        if let iconString = Lily.boostedSkillLabelString(str: skill) {
-                            Image(systemName: iconString)
+                        if let boostedSkillIcon = Lily.boostedSkillIcon(skill) {
+                            boostedSkillIcon
                                 .foregroundColor("8b0000".convertToColor())
                         }
                     }

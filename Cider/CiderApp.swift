@@ -50,7 +50,7 @@ struct CiderApp: App {
                             self.tappedTwice = false
                         }
                     }
-                    .tabItem { Label("CHARM一覧", systemImage: "wand.and.stars") }
+                    .tabItem { Label("CHARM一覧", image: "custom.weapon.fill") }
                     .tag(2)
             }
         }
