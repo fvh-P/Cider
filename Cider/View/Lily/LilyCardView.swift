@@ -13,7 +13,7 @@ struct LilyCardView: View {
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
-                if lily.birthDate != nil && Calendar.current.isDateInToday(lily.birthDate!) {
+                if lily.birthDate != nil && lily.birthDate!.stringFromDate(format: "--MM-dd") == Date().stringFromDate(format: "--MM-dd") {
                     Text("🎉")
                 }
                 Text(lily.name ?? "名称不明リリィ")
