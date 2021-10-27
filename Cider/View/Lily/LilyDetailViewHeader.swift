@@ -18,6 +18,10 @@ struct LilyDetailViewHeader: View {
     }
     var body: some View {
         VStack {
+            if lily?.birthDate != nil && lily!.birthDate!.stringFromDate(format: "--MM-dd") == Date().stringFromDate(format: "--MM-dd") {
+                Text("🎉 Happy Birthday!")
+                    .font(.title3)
+            }
             if let icon = icon.randomElement() {
                 HStack {
                     ImageView(url: icon.imageUrl, cache: cache, placeholder: ImageIndicatorView(isAnimating: true))
