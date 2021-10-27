@@ -11,9 +11,9 @@ struct LilyListView: View {
     var isRootList = false
     @EnvironmentObject var partialSheetManager: PartialSheetManager
     @EnvironmentObject var lilyNavigationHelper: LilyNavigationHelper
-    var gardenSelection = "指定なし"
-    var legionSelection = "指定なし"
-    var skillSelection = "指定なし"
+    var gardenSelection: String? = nil
+    var legionSelection: String? = nil
+    var skillSelection: String? = nil
     @StateObject var lilyListVM = LilyListViewModel()
     
     var body: some View {
@@ -57,9 +57,15 @@ struct LilyListView: View {
                 })
             }
             .onAppear {
-                self.lilyListVM.gardenSelection = self.gardenSelection
-                self.lilyListVM.legionSelection = self.legionSelection
-                self.lilyListVM.skillSelection = self.skillSelection
+                if let gs = self.gardenSelection {
+                    self.lilyListVM.gardenSelection = gs
+                }
+                if let ls = self.legionSelection {
+                    self.lilyListVM.legionSelection = ls
+                }
+                if let ss = self.skillSelection {
+                    self.lilyListVM.skillSelection = ss
+                }
                 self.lilyListVM.loadLilyList()
             }
             
