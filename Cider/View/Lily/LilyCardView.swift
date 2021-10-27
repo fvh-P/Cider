@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct LilyCardView: View {
-    private let customRareSkillSymbolConfig = UIImage.SymbolConfiguration(pointSize: 24.0, weight: .medium, scale: .small)
     let lily: Lily
     var body: some View {
         VStack(alignment: .leading) {
