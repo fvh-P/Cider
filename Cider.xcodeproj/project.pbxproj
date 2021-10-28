@@ -89,6 +89,7 @@
 		29CC6CBB26B5B2670062EF80 /* View+IfDeviceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CC6CBA26B5B2670062EF80 /* View+IfDeviceType.swift */; };
 		29CC6CBD26B5B27F0062EF80 /* View+PartialSheetModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CC6CBC26B5B27F0062EF80 /* View+PartialSheetModifier.swift */; };
 		29CC6D1026BC4EA50062EF80 /* CastListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CC6D0F26BC4EA50062EF80 /* CastListRow.swift */; };
+		29D05491272AE041008B02F3 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D05490272AE041008B02F3 /* ArrayExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -189,6 +190,7 @@
 		29CC6CBA26B5B2670062EF80 /* View+IfDeviceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+IfDeviceType.swift"; sourceTree = "<group>"; };
 		29CC6CBC26B5B27F0062EF80 /* View+PartialSheetModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+PartialSheetModifier.swift"; sourceTree = "<group>"; };
 		29CC6D0F26BC4EA50062EF80 /* CastListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastListRow.swift; sourceTree = "<group>"; };
+		29D05490272AE041008B02F3 /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -396,6 +398,7 @@
 				29CC6C9C26B000520062EF80 /* ResponsiveNavigationStyle.swift */,
 				290274A926C131050006EE57 /* DecimalExtension.swift */,
 				29019C0B2708721F00E79357 /* ImageCache.swift */,
+				29D05490272AE041008B02F3 /* ArrayExtension.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -561,6 +564,7 @@
 				29CC6CA726B283F10062EF80 /* UIApplicationExtension.swift in Sources */,
 				29CC6C8126A1E2400062EF80 /* LilyDetailView.swift in Sources */,
 				290274B026C176A40006EE57 /* CharmDetailView.swift in Sources */,
+				29D05491272AE041008B02F3 /* ArrayExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -630,7 +634,7 @@
 				CIDER_DISPLAY_NAME = "Cider (dev)";
 				CODE_SIGN_IDENTITY = "Apple Distribution: Kosuke Kurihara (JQ342Z7S5L)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 29;
+				CURRENT_PROJECT_VERSION = 30;
 				DEVELOPMENT_ASSET_PATHS = "\"Cider/Preview Content\"";
 				DEVELOPMENT_TEAM = JQ342Z7S5L;
 				ENABLE_PREVIEWS = YES;
@@ -713,7 +717,7 @@
 				CIDER_DISPLAY_NAME = Cider;
 				CODE_SIGN_IDENTITY = "Apple Distribution: Kosuke Kurihara (JQ342Z7S5L)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 29;
+				CURRENT_PROJECT_VERSION = 30;
 				DEVELOPMENT_ASSET_PATHS = "\"Cider/Preview Content\"";
 				DEVELOPMENT_TEAM = JQ342Z7S5L;
 				ENABLE_PREVIEWS = YES;
@@ -802,7 +806,7 @@
 				CIDER_DISPLAY_NAME = "Cider (dev)";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 29;
+				CURRENT_PROJECT_VERSION = 30;
 				DEVELOPMENT_ASSET_PATHS = "\"Cider/Preview Content\"";
 				DEVELOPMENT_TEAM = JQ342Z7S5L;
 				ENABLE_PREVIEWS = YES;

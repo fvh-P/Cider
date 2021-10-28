@@ -85,13 +85,6 @@ class LilyListViewModel: LilyRepositoryInjectable, ImageRecordRepositoryInjectab
     
     var filteredLilies: [Lily] {
         var filtered = lilies
-        if !self.searchText.isEmpty {
-            filtered = filtered.filter({
-                $0.name?.contains(self.searchText) == true
-                    || $0.nameKana?.contains(self.searchText) == true
-                    || $0.nameEn?.lowercased().contains(self.searchText.lowercased()) == true
-            })
-        }
         if self.gardenSelection != "指定なし" {
             filtered = filtered.filter({
                 $0.garden == self.gardenSelection
@@ -114,7 +107,21 @@ class LilyListViewModel: LilyRepositoryInjectable, ImageRecordRepositoryInjectab
             })
         }
         
-        return filtered
+        if !self.searchText.isEmpty {
+            let (a, b) = filtered.filter({
+                $0.name?.contains(self.searchText) == true
+                    || $0.nameKana?.contains(self.searchText) == true
+                    || $0.nameEn?.lowercased().contains(self.searchText.lowercased()) == true
+            }).partition {
+                $0.name?.hasPrefix(self.searchText) == true
+                    || $0.nameKana?.hasPrefix(self.searchText) == true
+                    || $0.nameEn?.lowercased().hasPrefix(self.searchText) == true
+            }
+            return a + b
+        }
+        else {
+            return filtered
+        }
     }
     var gardens: [String] {
         var arr = ["指定なし"]

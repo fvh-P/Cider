@@ -49,14 +49,20 @@ class CharmListViewModel: CharmRepositoryInjectable, ObservableObject {
     }
     
     var filteredCharms: [Charm] {
-        var filtered = charms
         if !self.searchText.isEmpty {
-            filtered = filtered.filter({
+            let (a, b) = self.charms.filter({
                 $0.name?.contains(self.searchText) == true
                     || $0.name?.contains(self.searchText.applyingTransform(.hiraganaToKatakana, reverse: false)!) == true
                     || $0.nameEn?.lowercased().contains(self.searchText.lowercased()) == true
-            })
+            }).partition {
+                $0.name?.hasPrefix(self.searchText) == true
+                    || $0.name?.hasPrefix(self.searchText.applyingTransform(.hiraganaToKatakana, reverse: false)!) == true
+                    || $0.nameEn?.lowercased().hasPrefix(self.searchText.lowercased()) == true
+            }
+            return a + b
         }
-        return filtered
+        else {
+            return self.charms
+        }
     }
 }
