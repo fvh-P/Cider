@@ -10,7 +10,7 @@ import SwiftUI
 struct BirthdayBalloonView: View {
     @State private var hidden = true
     @State private var timer: Timer?
-    let startDelay = Double.random(in: 0...3)
+    let startDelay = Double.random(in: 0.1...3.0)
     let view: AnyView
     init(proxy: GeometryProxy) {
         self.view = AnyView(PathAnimatingView(path: Path { p in
@@ -21,7 +21,7 @@ struct BirthdayBalloonView: View {
                 .resizable()
                 .scaledToFit()
                 .frame(width: 150)
-                .foregroundColor(.random)
+                .foregroundColor(.random.opacity(0.8))
         })
     }
     
@@ -36,6 +36,30 @@ struct BirthdayBalloonView: View {
         .onAppear {
             DispatchQueue.main.asyncAfter(deadline: .now() + startDelay) {
                 self.hidden = false
+            }
+        }
+    }
+}
+
+struct BirthbayBalloonView_Preview: PreviewProvider {
+    static var previews: some View {
+        GeometryReader { gr in
+            HStack {
+                Spacer()
+                VStack(alignment: .center) {
+                    Text("testtesttest")
+                        .font(.largeTitle)
+                    Text("testtesttest")
+                        .font(.largeTitle)
+                    Text("testtesttest")
+                        .font(.largeTitle)
+                    Text("testtesttest")
+                        .font(.largeTitle)
+                }
+                Spacer()
+            }
+            ForEach(1...10, id:\.self) { _ in
+                BirthdayBalloonView(proxy: gr)
             }
         }
     }
