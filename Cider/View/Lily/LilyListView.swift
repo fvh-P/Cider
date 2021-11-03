@@ -26,11 +26,11 @@ struct LilyListView: View {
                     ForEach(self.lilyListVM.filteredLilies) { lily in
                         if isRootList {
                             NavigationLink(destination: LilyDetailView(resource: lily.resource), tag: lily.resource, selection: self.$lilyNavigationHelper.selection) {
-                                LilyCardView(lily: lily)
+                                LilyCardView(lily: lily, sortOption: self.$lilyListVM.sortOption)
                             }
                         } else {
                             NavigationLink(destination: LilyDetailView(resource: lily.resource)) {
-                                LilyCardView(lily: lily)
+                                LilyCardView(lily: lily, sortOption: self.$lilyListVM.sortOption)
                             }
                         }
                     }

@@ -19,6 +19,29 @@ class LilyListViewModel: LilyRepositoryInjectable, ImageRecordRepositoryInjectab
     @Published var skillSelection = "指定なし"
     @Published var showSkillPicker = false
     
+    @Published var sortOption: SortOption = .nameKana {
+        didSet {
+            self.sortLilies()
+        }
+    }
+    @Published var sortOrder: SortOrder = .asc {
+        didSet {
+            self.sortLilies()
+        }
+    }
+    
+    enum SortOption: String, CaseIterable {
+        case nameKana = "フルネーム"
+        case givenNameKana = "下の名前"
+        case birthDate = "誕生日"
+        case birthDateFromToday = "誕生日 (今日基準)"
+    }
+    
+    enum SortOrder: String, CaseIterable {
+        case asc = "昇順"
+        case desc = "降順"
+    }
+    
     func loadLilyList() -> Void {
         if self.lilies.isEmpty {
             self.state = .loading
@@ -47,6 +70,7 @@ class LilyListViewModel: LilyRepositoryInjectable, ImageRecordRepositoryInjectab
             case .success(let lilies):
                 self.state = .success
                 self.lilies = lilies
+                self.sortLilies()
             }
         }
     }
@@ -81,6 +105,8 @@ class LilyListViewModel: LilyRepositoryInjectable, ImageRecordRepositoryInjectab
         self.gardenSelection = "指定なし"
         self.legionSelection = "指定なし"
         self.skillSelection = "指定なし"
+        self.sortOption = .nameKana
+        self.sortOrder = .asc
     }
     
     var filteredLilies: [Lily] {
@@ -123,6 +149,99 @@ class LilyListViewModel: LilyRepositoryInjectable, ImageRecordRepositoryInjectab
             return filtered
         }
     }
+    
+    func sortLilies() -> Void {
+        let nameKanaSecondKey = { (a: Lily, b: Lily) -> Bool in
+            if a.nameKana == nil {
+                return false
+            }
+            else if b.nameKana == nil {
+                return true
+            }
+            else {
+                return a.nameKana! < b.nameKana!
+            }
+        }
+        switch sortOption {
+        case .nameKana:
+            lilies.sort {
+                if $0.nameKana == nil {
+                    return false
+                }
+                else if $1.nameKana == nil {
+                    return true
+                }
+                else {
+                    return self.sortOrder == .asc ? $0.nameKana! < $1.nameKana!
+                                                    : $0.nameKana! > $1.nameKana!
+                }
+            }
+        case .givenNameKana:
+            lilies.sort {
+                if $0.givenNameKana == nil {
+                    return false
+                }
+                else if $1.givenNameKana == nil {
+                    return true
+                }
+                else if $0.givenNameKana! == $1.givenNameKana! {
+                        return nameKanaSecondKey($0, $1)
+                }
+                else {
+                    return self.sortOrder == .asc ? $0.givenNameKana! < $1.givenNameKana!
+                                                    : $0.givenNameKana! > $1.givenNameKana!
+                }
+            }
+        case .birthDate:
+            lilies.sort {
+                if $0.birthDate == nil && $1.birthDate == nil {
+                    return nameKanaSecondKey($0, $1)
+                }
+                else if $0.birthDate == nil {
+                    return false
+                }
+                else if $1.birthDate == nil {
+                    return true
+                }
+                else if $0.birthDate!.compare($1.birthDate!) == .orderedSame {
+                    return nameKanaSecondKey($0, $1)
+                }
+                else {
+                    return self.sortOrder == .asc ? $0.birthDate!.compare($1.birthDate!) == .orderedAscending
+                    : $0.birthDate!.compare($1.birthDate!) == .orderedDescending
+                }
+            }
+        case .birthDateFromToday:
+            let pairs = lilies.map { (lily: Lily) -> (Lily, Int?) in
+                guard let birthDate = lily.birthDate else {
+                    return (lily, nil)
+                }
+                var dayInterval = Calendar.current.dateComponents([.day], from: Date.today, to: birthDate).day!
+                if dayInterval < 0 {
+                    dayInterval = Calendar.current.dateComponents([.day], from: Date.today, to: birthDate.fixed(year: Date.now.year + 1)).day!
+                }
+                return (lily, dayInterval)
+            }
+            lilies = pairs.sorted {
+                if $0.1 == nil && $1.1 == nil {
+                    return nameKanaSecondKey($0.0, $1.0)
+                }
+                else if $0.1 == nil {
+                    return false
+                }
+                else if $1.1 == nil {
+                    return true
+                }
+                else if $0.1! == $1.1! {
+                    return nameKanaSecondKey($0.0, $1.0)
+                }
+                else {
+                    return self.sortOrder == .asc ? $0.1! < $1.1! : $0.1! > $1.1!
+                }
+            }.map { $0.0 }
+        }
+    }
+    
     var gardens: [String] {
         var arr = ["指定なし"]
         arr.append(contentsOf: Array(Set(lilies.compactMap({ l -> String? in
@@ -130,6 +249,7 @@ class LilyListViewModel: LilyRepositoryInjectable, ImageRecordRepositoryInjectab
         }))).sorted())
         return arr
     }
+    
     var legions: [String] {
         var arr = ["指定なし","レギオン情報なし"]
         arr.append(contentsOf: Array(Set(lilies.compactMap({ l -> String? in
@@ -137,6 +257,7 @@ class LilyListViewModel: LilyRepositoryInjectable, ImageRecordRepositoryInjectab
         }))).sorted())
         return arr
     }
+    
     var skills: [[String]] {
         var rareskills = ["指定なし"]
         rareskills.append(contentsOf: Array(Set(lilies.compactMap({ l -> String? in
@@ -155,5 +276,12 @@ class LilyListViewModel: LilyRepositoryInjectable, ImageRecordRepositoryInjectab
         arr.append(subskills)
         arr.append(boostedskills)
         return arr
+    }
+    
+    var isFilterEmpty: Bool {
+        return self.searchText.isEmpty
+            && self.gardenSelection == "指定なし"
+            && self.legionSelection == "指定なし"
+            && self.skillSelection == "指定なし"
     }
 }

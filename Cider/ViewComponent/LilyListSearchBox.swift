@@ -86,6 +86,15 @@ struct LilyListSearchBox: View {
                         }
                     }
                 }
+                Button(action: {
+                    self.partialSheetManager.showPartialSheet { LilySortOrderPicker(sortOption: self.$lilyListVM.sortOption, sortOrder: self.$lilyListVM.sortOrder)
+                        .frame(maxHeight: 400)
+                    }
+                }) {
+                    HStack {
+                        Text("並び替え: \(self.lilyListVM.sortOption.rawValue) | \(self.lilyListVM.sortOrder.rawValue)")
+                    }
+                }
             },
             label: {
                 Text("絞り込み\(self.selectionsText)")

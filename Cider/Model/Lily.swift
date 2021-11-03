@@ -324,7 +324,7 @@ extension Lily {
             let givenNameKana = TriplesHelper.findOne(triples: triples, predicate: "\(Self.lily)givenNameKana")?.object.value
             let age_str = TriplesHelper.findOne(triples: triples, predicate: "\(Self.foaf)age")?.object.value
             let age: Int? = age_str?.parse()
-            let birthDate: Date? = TriplesHelper.findOne(triples: triples, predicate: "\(Self.schema)birthDate")?.object.value.dateFromString(format: "--MM-dd")
+            let birthDate: Date? = TriplesHelper.findOne(triples: triples, predicate: "\(Self.schema)birthDate")?.object.value.dateFromString(format: "--MM-dd")?.fixed(year: Date.now.year)
             let rareSkill = TriplesHelper.findOne(triples: triples, predicate: "\(Self.lily)rareSkill")?.object.value
             let subSkill = TriplesHelper.findMany(triples: triples, predicate: "\(Self.lily)subSkill").map({t -> String in t.object.value})
             let isBoosted_str = TriplesHelper.findOne(triples: triples, predicate: "\(Self.lily)isBoosted")?.object.value
@@ -367,7 +367,7 @@ extension Lily {
         let age: Int? = TriplesHelper.findOne(triples: triples, predicate: "\(Self.foaf)age")?.object.value.parse()
         let height: Double? = TriplesHelper.findOne(triples: triples, predicate: "\(Self.schema)height")?.object.value.parse()
         let weight: Double? = TriplesHelper.findOne(triples: triples, predicate: "\(Self.schema)weight")?.object.value.parse()
-        let birthDate: Date? = TriplesHelper.findOne(triples: triples, predicate: "\(Self.schema)birthDate")?.object.value.dateFromString(format: "--MM-dd")
+        let birthDate: Date? = TriplesHelper.findOne(triples: triples, predicate: "\(Self.schema)birthDate")?.object.value.dateFromString(format: "--MM-dd")?.fixed(year: Date.now.year)
         let lifeStatus = TriplesHelper.findOne(triples: triples, predicate: "\(Self.lily)lifeStatus")?.object.value
         let killedIn = TriplesHelper.findOne(triples: triples, predicate: "\(Self.lily)killedIn")?.object.value
         let bloodType = TriplesHelper.findOne(triples: triples, predicate: "\(Self.lily)bloodType")?.object.value

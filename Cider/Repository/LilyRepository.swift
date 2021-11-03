@@ -72,17 +72,7 @@ fileprivate class LilyRepositoryImpl: LilyRepository {
                             triple.object.value == "https://lily.fvhp.net/rdf/IRIs/lily_schema.ttl#Lily"
                         })
                     })
-                    return .success(Lily.convertForListView(from: dict_lilies, legions: legions).sorted {
-                        if $0.nameKana == nil {
-                            return false
-                        }
-                        else if $1.nameKana == nil {
-                            return true
-                        }
-                        else {
-                            return $0.nameKana! < $1.nameKana!
-                        }
-                    })
+                    return .success(Lily.convertForListView(from: dict_lilies, legions: legions))
                 case .failure(let error):
                     return .failure(.other(detail: error.localizedDescription))
                 }
