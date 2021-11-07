@@ -111,6 +111,12 @@ class LilyListViewModel: LilyRepositoryInjectable, ImageRecordRepositoryInjectab
     
     var filteredLilies: [Lily] {
         var filtered = lilies
+        if self.isFilterEmpty {
+            let (a, b) = lilies.partition {
+                $0.birthDate?.isTodayWithoutYear == true
+            }
+            return a + b
+        }
         if self.gardenSelection != "指定なし" {
             filtered = filtered.filter({
                 $0.garden == self.gardenSelection
@@ -283,5 +289,6 @@ class LilyListViewModel: LilyRepositoryInjectable, ImageRecordRepositoryInjectab
             && self.gardenSelection == "指定なし"
             && self.legionSelection == "指定なし"
             && self.skillSelection == "指定なし"
+            && self.sortOption == .nameKana
     }
 }
