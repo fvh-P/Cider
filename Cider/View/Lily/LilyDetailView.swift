@@ -11,10 +11,12 @@ struct LilyDetailView: View, LilyRepositoryInjectable {
     let resource: String
     @StateObject var lilyDetailVM = LilyDetailViewModel()
     @Environment(\.imageCache) var cache: ImageCache
+    
     var body: some View {
         ZStack {
             List {
                 Section(header: LilyDetailViewHeader(lilyDetailVM: self.lilyDetailVM)) {}
+                    .modifier(HeaderProminence(.increased))
                 Section(header: Text("ガーデン・レギオン情報")) {
                     if let lily = self.lilyDetailVM.lily {
                         LilyDetailGardenLegionInfoView(lily: lily)

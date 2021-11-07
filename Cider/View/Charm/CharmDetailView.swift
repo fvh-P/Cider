@@ -15,6 +15,7 @@ struct CharmDetailView: View {
         ZStack {
             List {
                 Section(header: CharmDetailViewHeader(charm: self.charmDetailVM.charm)) {}
+                    .modifier(HeaderProminence(.increased))
                 Section(header: Text("基本情報")) {
                     ListSingleLineRow(title: "形式番号", value: self.charmDetailVM.charm?.productID)
                     ListSingleLineRow(title: "名称", value: self.charmDetailVM.charm?.name)

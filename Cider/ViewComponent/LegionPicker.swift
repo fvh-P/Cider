@@ -22,6 +22,7 @@ struct LegionPicker: View {
                             Text(legions[i]).tag(legions[i])
                         }
                     }
+                    .pickerStyle(.wheel)
                     .onTapGesture {}
                 }
                 .frame(maxWidth: min(600, gr.size.width) - 10)

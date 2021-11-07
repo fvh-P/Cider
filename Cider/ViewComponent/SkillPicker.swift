@@ -29,9 +29,11 @@ struct SkillPicker: View {
                             Text("ブーステッドスキル").tag(2)
                                 .font(.callout)
                         }
+                        .pickerStyle(.wheel)
                         .onTapGesture {}
                         .frame(maxWidth: min(600, gr.size.width) * 0.4 - 10)
-                        .clipped()
+                        .compositingGroup()
+                        .clipped(antialiased: true)
                         Picker(selection: $skillSelection, label: Text("スキル")) {
                             ForEach(self.skills[self.skillClass], id:\.self) { item in
                                 HStack {
@@ -48,9 +50,11 @@ struct SkillPicker: View {
                                 .font(.callout)
                             }
                         }
+                        .pickerStyle(.wheel)
                         .onTapGesture {}
                         .frame(maxWidth: min(600, gr.size.width) * 0.6 - 10)
-                        .clipped()
+                        .compositingGroup()
+                        .clipped(antialiased: true)
                     }
                 }
                 .frame(maxWidth: min(600, gr.size.width) - 10)

@@ -35,6 +35,7 @@ struct LilyListView: View {
                         }
                     }
                 }
+                .listStyle(.plain)
                 .edgesIgnoringSafeArea(.all)
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {

@@ -14,6 +14,7 @@ struct CiderApp: App {
     private let charmNavigationHelper = CharmNavigationHelper()
     @State private var tabSelection = 1
     @State private var tappedTwice: Bool = false
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     
     var handler: Binding<Int> { Binding(
         get: { self.tabSelection },
@@ -54,6 +55,27 @@ struct CiderApp: App {
                     .tag(2)
             }
         }
+    }
+}
+
+class AppDelegate: UIResponder, UIApplicationDelegate {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        if #available(iOS 15.0, *) {
+            UITableView.appearance().sectionFooterHeight = 0
+            
+            let navigationBarAppearance = UINavigationBarAppearance()
+            navigationBarAppearance.configureWithDefaultBackground()
+            UINavigationBar.appearance().standardAppearance = navigationBarAppearance
+            UINavigationBar.appearance().compactAppearance = navigationBarAppearance
+            UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance
+            UINavigationBar.appearance().compactScrollEdgeAppearance = navigationBarAppearance
+            
+            let tabBarAppearance = UITabBarAppearance()
+            tabBarAppearance.configureWithDefaultBackground()
+            UITabBar.appearance().standardAppearance = tabBarAppearance
+            UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance
+        }
+        return true
     }
 }
 

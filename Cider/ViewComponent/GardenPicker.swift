@@ -22,6 +22,7 @@ struct GardenPicker: View {
                             Text(gardens[i]).tag(gardens[i])
                         }
                     }
+                    .pickerStyle(.wheel)
                     .onTapGesture {}
                 }
                 .frame(maxWidth: min(600, gr.size.width) - 10)

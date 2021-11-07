@@ -23,17 +23,21 @@ struct LilySortOrderPicker: View {
                                 Text(option.rawValue).tag(option)
                             }
                         }
+                        .pickerStyle(.wheel)
                         .onTapGesture {}
                         .frame(maxWidth: min(600, gr.size.width) * 0.7 - 10)
-                        .clipped()
+                        .compositingGroup()
+                        .clipped(antialiased: true)
                         Picker(selection: $sortOrder, label: Text("順序")) {
                             ForEach(LilyListViewModel.SortOrder.allCases, id:\.self) { order in
                                 Text(order.rawValue).tag(order)
                             }
                         }
+                        .pickerStyle(.wheel)
                         .onTapGesture {}
                         .frame(maxWidth: min(600, gr.size.width) * 0.3 - 10)
-                        .clipped()
+                        .compositingGroup()
+                        .clipped(antialiased: true)
                     }
                 }
                 .frame(maxWidth: min(600, gr.size.width) - 10)
