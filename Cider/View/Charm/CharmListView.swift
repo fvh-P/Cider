@@ -31,7 +31,6 @@ struct CharmListView: View {
                     }
                 }
                 .listStyle(.plain)
-                .edgesIgnoringSafeArea(.all)
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItem(placement: .principal) {

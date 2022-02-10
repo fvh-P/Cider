@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2901070C27B566CF0011C1AC /* CustomWheelPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2901070B27B566CF0011C1AC /* CustomWheelPicker.swift */; };
 		29019C0A2708712600E79357 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29019C092708712600E79357 /* ImageView.swift */; };
 		29019C0C2708721F00E79357 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29019C0B2708721F00E79357 /* ImageCache.swift */; };
 		29019C162708758500E79357 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29019C152708758500E79357 /* ImageLoader.swift */; };
@@ -110,6 +111,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2901070B27B566CF0011C1AC /* CustomWheelPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomWheelPicker.swift; sourceTree = "<group>"; };
 		29019C092708712600E79357 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		29019C0B2708721F00E79357 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		29019C152708758500E79357 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 				29567E0B26F372B400CFB7FD /* ListSingleLineNavLinkRow.swift */,
 				29B195CF2724307800045FD9 /* PathAnimatingView.swift */,
 				29B195D22724447900045FD9 /* BirthdayBalloonView.swift */,
+				2901070B27B566CF0011C1AC /* CustomWheelPicker.swift */,
 			);
 			path = ViewComponent;
 			sourceTree = "<group>";
@@ -537,6 +540,7 @@
 				29019C0C2708721F00E79357 /* ImageCache.swift in Sources */,
 				29B39D8F2705E90400172A8A /* ImageRecord.swift in Sources */,
 				290274B626C192180006EE57 /* CharmListSearchBox.swift in Sources */,
+				2901070C27B566CF0011C1AC /* CustomWheelPicker.swift in Sources */,
 				29CC6CA526B27CF80062EF80 /* LegionPicker.swift in Sources */,
 				29CC6C8326A1EEBA0062EF80 /* Charm.swift in Sources */,
 				29CC6CBD26B5B27F0062EF80 /* View+PartialSheetModifier.swift in Sources */,
@@ -642,7 +646,7 @@
 				CIDER_DISPLAY_NAME = "Cider (dev)";
 				CODE_SIGN_IDENTITY = "Apple Distribution: Kosuke Kurihara (JQ342Z7S5L)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 38;
+				CURRENT_PROJECT_VERSION = 39;
 				DEVELOPMENT_ASSET_PATHS = "\"Cider/Preview Content\"";
 				DEVELOPMENT_TEAM = JQ342Z7S5L;
 				ENABLE_PREVIEWS = YES;
@@ -652,7 +656,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.4.1;
+				MARKETING_VERSION = 0.4.2;
 				PRODUCT_BUNDLE_IDENTIFIER = net.fvhp.lily.Cider;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "match AdHoc net.fvhp.lily.Cider";
@@ -725,7 +729,7 @@
 				CIDER_DISPLAY_NAME = "Cider (beta)";
 				CODE_SIGN_IDENTITY = "Apple Distribution: Kosuke Kurihara (JQ342Z7S5L)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 38;
+				CURRENT_PROJECT_VERSION = 39;
 				DEVELOPMENT_ASSET_PATHS = "\"Cider/Preview Content\"";
 				DEVELOPMENT_TEAM = JQ342Z7S5L;
 				ENABLE_PREVIEWS = YES;
@@ -735,7 +739,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.4.1;
+				MARKETING_VERSION = 0.4.2;
 				PRODUCT_BUNDLE_IDENTIFIER = net.fvhp.lily.Cider;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore net.fvhp.lily.Cider";
@@ -814,7 +818,7 @@
 				CIDER_DISPLAY_NAME = "Cider (dev)";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 38;
+				CURRENT_PROJECT_VERSION = 39;
 				DEVELOPMENT_ASSET_PATHS = "\"Cider/Preview Content\"";
 				DEVELOPMENT_TEAM = JQ342Z7S5L;
 				ENABLE_PREVIEWS = YES;
@@ -824,7 +828,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.4.1;
+				MARKETING_VERSION = 0.4.2;
 				PRODUCT_BUNDLE_IDENTIFIER = net.fvhp.lily.Cider;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -897,7 +901,7 @@
 				CIDER_DISPLAY_NAME = Cider;
 				CODE_SIGN_IDENTITY = "Apple Distribution: Kosuke Kurihara (JQ342Z7S5L)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 38;
+				CURRENT_PROJECT_VERSION = 39;
 				DEVELOPMENT_ASSET_PATHS = "\"Cider/Preview Content\"";
 				DEVELOPMENT_TEAM = JQ342Z7S5L;
 				ENABLE_PREVIEWS = YES;
@@ -907,7 +911,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.4.1;
+				MARKETING_VERSION = 0.4.2;
 				PRODUCT_BUNDLE_IDENTIFIER = net.fvhp.lily.Cider;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore net.fvhp.lily.Cider";

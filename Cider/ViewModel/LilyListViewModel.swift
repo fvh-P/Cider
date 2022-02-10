@@ -30,14 +30,14 @@ class LilyListViewModel: LilyRepositoryInjectable, ImageRecordRepositoryInjectab
         }
     }
     
-    enum SortOption: String, CaseIterable {
+    enum SortOption: String, OriginalPickerCompatible {
         case nameKana = "フルネーム"
         case givenNameKana = "下の名前"
         case birthDate = "誕生日"
         case birthDateFromToday = "誕生日 (今日基準)"
     }
     
-    enum SortOrder: String, CaseIterable {
+    enum SortOrder: String, OriginalPickerCompatible {
         case asc = "昇順"
         case desc = "降順"
     }
@@ -292,3 +292,5 @@ class LilyListViewModel: LilyRepositoryInjectable, ImageRecordRepositoryInjectab
             && self.sortOption == .nameKana
     }
 }
+
+protocol OriginalPickerCompatible: CaseIterable, Equatable { }
